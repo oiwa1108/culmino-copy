@@ -10,19 +10,19 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/server": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "@emotion/cache": "11.10.1",
+    "@emotion/react": "11.10.0",
+    "@emotion/server": "11.10.0",
+    "@emotion/styled": "11.10.0",
+    "@mui/icons-material": "5.8.4",
+    "@mui/material": "5.10.0",
+    "next": "12.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
+    "@types/node": "18.7.4",
+    "@types/react": "18.0.17",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -30,6 +30,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.3.2",
-    "typescript": "latest"
+    "typescript": "4.7.4"
   }
 }
