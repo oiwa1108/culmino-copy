@@ -1,35 +1,28 @@
-import * as React from 'react';
-import type { NextPage } from 'next';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '../src/Link';
-import ProTip from '../src/ProTip';
-import Copyright from '../src/Copyright';
+import Head from '../src/components/head';
+import styles from '../styles/Home.module.css';
+import { Button, ButtonGroup } from '@chakra-ui/react';
+import Header from '../src/components/header';
+import News from '../src/components/news';
+import Footer from '../src/components/footer';
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js with TypeScript example
-        </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <div className={styles.all}>
+      <Head />
+      <Header />
+      <a href="/login" className={styles.start}>
+        <Button bg="#f7c6bd" textColor="white" _hover={{ bg: '#ff6c94' }}>
+          はじめる
+        </Button>
+      </a>
+      <img src="/image/top1.png" />
+      <div className={styles.newsContainer}>
+        <h2 className={styles.newsTitle}>お知らせ</h2>
+        <News date="2022.10.22" contents="CULMINOアプリリリース" />
+        <News date="2022.10.01" contents="クラウドファンディング開始" />
+        <News date="2022.08.23" contents="CULMINO株式会社設立" />
+      </div>
+      <Footer />
+    </div>
   );
-};
-
-export default Home;
+}
