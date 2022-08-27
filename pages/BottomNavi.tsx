@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BottomNavi(props) {
+export default function BottomNavi(props:any) {
   const router = useRouter();
   const classes = useStyles();
   const [value, setValue] = React.useState(router.pathname.slice(1) || './'); // アクセス時のURLを解析して、適切なナビゲーションボタンをアクティブにする。

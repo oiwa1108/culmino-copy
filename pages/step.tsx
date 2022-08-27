@@ -10,18 +10,23 @@ export default function Step() {
       <div className={styles.container}>
         <div className={styles.item}>
           <h2>1.募集する</h2>
+          <img src="/image/簡単ステップ1.svg" className={styles.pic}/>
         </div>
         <div className={styles.item}>
           <h2>2.応募する</h2>
+          <img src="/image/簡単ステップ2.svg" className={styles.pic}/>
         </div>
         <div className={styles.item}>
           <h2>3.メッセージ</h2>
+          <img src="/image/簡単ステップ3.svg" className={styles.pic}/>
         </div>
         <div className={styles.item}>
           <h2>4.会う</h2>
+          <img src="/image/簡単ステップ4.svg" className={styles.pic}/>
         </div>
         <div className={styles.item}>
           <h2>5.評価する</h2>
+          <img src="/image/簡単ステップ5.svg" className={styles.pic}/>
         </div>
       </div>
       <div className={styles.bottomTitle}>

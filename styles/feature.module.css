@@ -6,23 +6,30 @@
 
 .container {
   margin-top: 40px;
-  display: grid;
-  grid-template-columns: 170px 170px;
-  gap: 40px 0px;
-  grid-template-rows: 120px 120px 120px;
-  justify-content: center;
+  margin-bottom: 40px;
 }
 
-.item {
-  background: #f69679;
-  padding: 10px;
-  color: #fff;
+.title {
+  font-size: 20px;
+  text-align: left;
+  padding-left: 30px;
 }
+
+.contents {
+  padding: 20px 20px 4px 30px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.there {
+  color: #f7c6bd;
+}
+
 
 .bottomTitle {
   font-family: 'Noto Sans JP', sans-serif;
   width: 220px;
-  margin: 40px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 20px;
   background: #fa8072;
   border-top-right-radius: 10px;
@@ -31,3 +38,4 @@
   text-align: center;
   color: #fff;
 }
+

@@ -1,0 +1,29 @@
+.container {
+  background-color:#fa8072;
+}
+
+.inner {
+  margin: 0;
+  display: flex;
+}
+
+.logoContainer {
+  margin: 20px 0 0 20px;
+}
+
+.sns {
+  margin: 10px 10px 0 10px;
+  display: flex;
+  font-size: 25px;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.list {
+  margin: 10px 0 0 70px;
+  list-style-type: none;
+  color:#fff;
+  font-family: 'Yomogi', cursive;
+  font-size: 15px;
+  padding-bottom: 15px;
+}

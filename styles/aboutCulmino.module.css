@@ -1,0 +1,55 @@
+.all {
+  max-width: 375px;
+  margin: 0 auto;
+  font-family: 'Yomogi', cursive;
+}
+
+.container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.title {
+  padding-top: 50px;
+  font-size: 25px;
+}
+
+.contents {
+  padding-top: 20px;
+  padding-left: 50px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.list {
+  padding-top: 40px;
+  padding-left: 50px;
+  text-align: left;
+  line-height: 2;
+  list-style-type: none;
+  font-size: 18px;
+}
+
+.li:active {
+  color: #fa8072;
+}
+
+.logo {
+  width: 150px;
+  margin-top: 20px;
+  margin-left: 180px;
+}
+
+.bottomTitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  width: 220px;
+  margin: 10px 0 0 0;
+  padding: 20px;
+  background: #fa8072;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+

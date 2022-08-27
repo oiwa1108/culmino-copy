@@ -5,24 +5,28 @@
 }
 
 .container {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 170px 170px;
-  gap: 40px 0px;
-  grid-template-rows: 120px 120px 120px;
-  justify-content: center;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.item {
-  background: #f69679;
-  padding: 10px;
-  color: #fff;
+.title {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-size: 18px;
 }
+
+.contents {
+  padding: 10px 20px 4px 20px;
+  text-align: left;
+  font-size: 10.5px;
+}
+
 
 .bottomTitle {
   font-family: 'Noto Sans JP', sans-serif;
   width: 220px;
-  margin: 40px 0 0 0;
+  margin: 20px 0 0 0;
   padding: 20px;
   background: #fa8072;
   border-top-right-radius: 10px;
@@ -31,3 +35,4 @@
   text-align: center;
   color: #fff;
 }
+

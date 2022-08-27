@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 import { Button, ButtonGroup } from '@chakra-ui/react';
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -26,7 +27,7 @@ export default function Login() {
           <Input type="text" />
           <FormLabel>パスワード</FormLabel>
           <Input type="password" />
-          <a href="/HomeTab">
+          <Link  href="/HomeTab"><a>
             <Button
               className={styles.btn}
               bg="#f7c6bd"
@@ -35,7 +36,7 @@ export default function Login() {
             >
               ログイン
             </Button>
-          </a>
+          </a></Link>
           <FormHelperText className={styles.txt}>
             アカウントをお持ちでない方は
           </FormHelperText>
