@@ -15,7 +15,7 @@ export default function Home() {
           はじめる
         </Button>
       </a>
-      <img src="/image/top1.png" />
+      <img src="/image/top1.png" className={styles.smartPhoneImg} />
       <div className={styles.newsContainer}>
         <h2 className={styles.newsTitle}>お知らせ</h2>
         <News date="2022.10.22" contents="CULMINOアプリリリース" />
