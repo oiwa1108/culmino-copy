@@ -3,37 +3,14 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  List,
-  ListItem,
   Box,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import React from 'react';
 import { useState } from 'react';
-interface NavParam {
-  text: string;
-  href: string;
-}
-
-const Navigations: React.FC<{ navList: NavParam[] }> = ({ navList }) => (
-  <List>
-    <nav>
-      {navList.map((nav) => (
-        <ListItem>
-          <NavLink href={nav.href}>{nav.text}</NavLink>
-        </ListItem>
-      ))}
-    </nav>
-  </List>
-);
+import { NavParam, Navigations } from '../navigations';
 
 const LogoImg = styled('img')({
   margin: '0 15px',
-});
-
-const NavLink = styled('a')({
-  margin: '0 15px',
-  fontFamily: 'Yomogi',
 });
 
 export default function Header() {
