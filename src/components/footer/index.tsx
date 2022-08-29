@@ -28,7 +28,7 @@ export default function Footer() {
   ];
 
   return (
-    <Box sx={{ backgroundColor: 'secondary.main' }}>
+    <Box sx={{ backgroundColor: 'background.default' }}>
       <Box sx={{ margin: 0, display: 'flex' }}>
         <Box sx={{ margin: '20px 0 0 20px' }}>
           <img
