@@ -1,53 +1,60 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitter,
   faTiktok,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-import styles from './style.module.css';
+import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { NavParam, Navigations } from '../navigations';
+
+const SnsContainer = styled('div')({
+  margin: '10px 10px 0 10px',
+  display: 'flex',
+  fontSize: '25px',
+  justifyContent: 'space-around',
+  color: '#fff',
+});
 
 export default function Footer() {
+  const navList: NavParam[] = [
+    { text: '利用規約', href: '#' },
+    { text: 'プライバシーポリシー', href: '#' },
+    { text: '特定商取引法', href: '#' },
+    { text: '資産決済法', href: '#' },
+    { text: 'ガイドライン', href: '#' },
+    { text: 'よくあるお問合せ', href: '#' },
+    { text: '企業情報', href: '#' },
+  ];
+
   return (
-    <div className={styles.container}>
-      <div className={styles.inner}>
-        <div className={styles.logoContainer}>
+    <Box sx={{ backgroundColor: 'background.default' }}>
+      <Box sx={{ margin: 0, display: 'flex' }}>
+        <Box sx={{ margin: '20px 0 0 20px' }}>
           <img
             src="/image/sublogo.jpg"
             width="100"
             height="100"
             alt="Culminoサブ"
           />
-          <div className={styles.sns}>
+          <SnsContainer>
             <FontAwesomeIcon icon={faTwitter} />
             <FontAwesomeIcon icon={faTiktok} />
             <FontAwesomeIcon icon={faInstagram} />
-          </div>
-        </div>
-        <ul className={styles.list}>
-          <a href="#">
-            <li>利用規約</li>
-          </a>
-          <a href="#">
-            <li>プライバシーポリシー</li>
-          </a>
-          <a href="#">
-            <li>特定商取引法</li>
-          </a>
-          <a href="#">
-            <li>資産決済法</li>
-          </a>
-          <a href="#">
-            <li>ガイドライン</li>
-          </a>
-          <a href="#">
-            <li>よくあるお問合せ</li>
-          </a>
-          <a href="#">
-            <li>企業情報</li>
-          </a>
-        </ul>
-      </div>
-    </div>
+          </SnsContainer>
+        </Box>
+        <Navigations
+          navList={navList}
+          sx={{
+            margin: '10px 0 0 70px',
+            padding: '0',
+            listStyleType: 'none',
+            color: '#fff',
+            fontFamily: 'Yomogi', //cursive;
+            fontSize: '15px',
+          }}
+        ></Navigations>
+      </Box>
+    </Box>
   );
 }
