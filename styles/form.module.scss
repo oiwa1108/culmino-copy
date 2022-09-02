@@ -1,0 +1,165 @@
+%form_item {
+  list-style: none;
+  margin-top: 12px;
+}
+
+%input {
+  padding: 8px 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.label {
+  &__light {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.item {
+  margin-bottom: 24px;
+  &__input {
+    @extend %input;
+  }
+}
+
+.input {
+  @extend %input;
+}
+
+.input_half_area {
+  display: flex;
+  input {
+    display: block;
+    width: 50%;
+    @extend %input;
+  }
+  div {
+    margin-left: 4px;
+    line-height: 42px;
+  }
+}
+
+@import './variable.scss';
+.form_item {
+  @extend %form_item;
+  &__search {
+    @extend %form_item;
+    margin: 24px 0;
+    display: flex;
+  }
+  &__birthday {
+    display: flex;
+    align-items: center;
+  }
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  %__label {
+    display: block;
+  }
+  &__label {
+    @extend %__label;
+    &__search {
+      @extend %__label;
+      width: 50%;
+      margin: 0;
+    }
+  }
+  &__input {
+    @extend %input;
+    &__free_word_button {
+      @extend %input;
+      background: $baseColor;
+      color: #fff;
+      border: none;
+    }
+  }
+  &__range {
+    padding: 0 4px;
+  }
+  &__select_link {
+    display: block;
+    align-items: center;
+    width: 100%;
+    text-align: right;
+    padding: 4px;
+    &,
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+@mixin button($color, $bg) {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: $color;
+  background: $bg;
+  border-radius: 4px;
+  &:disabled {
+    opacity: 0.5;
+  }
+  &__two {
+    width: 49%;
+  }
+}
+
+.default_button {
+  @include button(#fff, $baseColor);
+  padding: 8px;
+  border: none;
+}
+
+.cancel_button {
+  @include button(#000, #fff);
+  padding: 7px 8px;
+  border: 1px solid #000;
+}
+
+.execution_button {
+  border: none;
+  display: block;
+  background: $baseColor;
+  color: #fff;
+  padding: 1em;
+  letter-spacing: 0;
+  border-radius: 2em;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.required {
+  padding: 0.1rem 0.2rem;
+  background: #c6c6c8;
+  color: #fff;
+  font-size: 0.5rem;
+  margin: 0.2rem;
+}
+
+.gfc {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 8px 0;
+  cursor: text;
+  &__degree {
+    font-size: 10px;
+    color: darkgray;
+    margin-bottom: 2px;
+  }
+}
+
+.error_item {
+  margin-bottom: 12px;
+}
+
+.error_text {
+  color: red;
+}

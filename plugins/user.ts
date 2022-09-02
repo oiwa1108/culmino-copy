@@ -1,6 +1,6 @@
 import { NewPhoto, User } from '@/types';
-import men_avatar from 'assets/images/men_avatar.png';
-import women_avatar from 'assets/images/women_avatar.png';
+import men_avatar from '../assets/images/men_avatar.png';
+import women_avatar from '../assets/images/women_avatar.png';
 import { alphabetValues, areas, CLOUDFRONT_URL, numberValues } from './const';
 
 const image_url = (
