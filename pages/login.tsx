@@ -27,7 +27,7 @@ export default function Login() {
           <Input type="text" />
           <FormLabel>パスワード</FormLabel>
           <Input type="password" />
-          <Link  href="/HomeTab"><a>
+          <Link href="/HomeTab"><a>
             <Button
               className={styles.btn}
               bg="#f7c6bd"

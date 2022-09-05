@@ -5,12 +5,13 @@
 }
 
 .container {
-  margin-top: 40px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 170px 170px;
   gap: 40px 0px;
   grid-template-rows: 120px 120px 120px;
   justify-content: center;
+  height: 450px;
 }
 
 .item {
@@ -22,7 +23,7 @@
 .bottomTitle {
   font-family: 'Noto Sans JP', sans-serif;
   width: 220px;
-  margin: 40px 0 0 0;
+  margin-top: 15px;
   padding: 20px;
   background: #fa8072;
   border-top-right-radius: 10px;

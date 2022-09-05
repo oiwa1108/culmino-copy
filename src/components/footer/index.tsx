@@ -28,7 +28,7 @@ export default function Footer() {
   ];
 
   return (
-    <Box sx={{ backgroundColor: 'background.default' }}>
+    <Box sx={{ backgroundColor: '#fa8072' }}>
       <Box sx={{ margin: 0, display: 'flex' }}>
         <Box sx={{ margin: '20px 0 0 20px' }}>
           <img
@@ -46,7 +46,7 @@ export default function Footer() {
         <Navigations
           navList={navList}
           sx={{
-            margin: '10px 0 0 70px',
+            margin: '3px 0 0 70px',
             padding: '0',
             listStyleType: 'none',
             color: '#fff',

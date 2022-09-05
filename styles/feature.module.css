@@ -5,6 +5,10 @@
 }
 
 .container {
+  height: 450px;
+}
+
+.box {
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -38,4 +42,3 @@
   text-align: center;
   color: #fff;
 }
-

@@ -1,5 +1,5 @@
 .container {
-  background-color:#fa8072;
+  background-color: #fa8072;
 }
 
 .inner {
@@ -22,7 +22,7 @@
 .list {
   margin: 10px 0 0 70px;
   list-style-type: none;
-  color:#fff;
+  color: #fff;
   font-family: 'Yomogi', cursive;
   font-size: 15px;
   padding-bottom: 15px;

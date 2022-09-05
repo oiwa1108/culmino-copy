@@ -9,28 +9,28 @@ export default function Step() {
       <Header />
       <div className={styles.container}>
         <div className={styles.item}>
-          <h2>1.募集する</h2>
-          <img src="/image/簡単ステップ1.svg" className={styles.pic}/>
+          <p>1.募集する</p>
+          <img src="/image/step1.svg" className={styles.pic} />
         </div>
         <div className={styles.item}>
-          <h2>2.応募する</h2>
-          <img src="/image/簡単ステップ2.svg" className={styles.pic}/>
+          <p>2.応募する</p>
+          <img src="/image/step2.svg" className={styles.pic} />
         </div>
         <div className={styles.item}>
-          <h2>3.メッセージ</h2>
-          <img src="/image/簡単ステップ3.svg" className={styles.pic}/>
+          <p>3.メッセージ</p>
+          <img src="/image/step3.svg" className={styles.pic} />
         </div>
         <div className={styles.item}>
-          <h2>4.会う</h2>
-          <img src="/image/簡単ステップ4.svg" className={styles.pic}/>
+          <p>4.会う</p>
+          <img src="/image/step4.svg" className={styles.pic} />
         </div>
         <div className={styles.item}>
-          <h2>5.評価する</h2>
-          <img src="/image/簡単ステップ5.svg" className={styles.pic}/>
+          <p>5.評価する</p>
+          <img src="/image/step5.svg" className={styles.pic} />
         </div>
       </div>
       <div className={styles.bottomTitle}>
-        <h1>簡単ステップ</h1>
+        <p>簡単ステップ</p>
       </div>
     </div>
   );
