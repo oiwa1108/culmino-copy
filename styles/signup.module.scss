@@ -1,0 +1,10 @@
+.gender_label {
+  border: 1px solid #c6c6c8;
+}
+
+@import './variable.scss';
+.gender_label_checked {
+  border: 1px solid $baseColor;
+  background: $baseColor;
+  color: #fff;
+}
