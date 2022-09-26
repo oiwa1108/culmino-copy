@@ -30,17 +30,17 @@ export default function BottomNavi(props) {
         className={(classes.root, 'fixed-bottom z-depth-1')}
       >
         <BottomNavigationAction
-          value="/HomeTab"
+          value="/home"
           label="ホーム"
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
-          value="/MatchTab"
+          value="/match"
           label="マッチング"
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
-          value="/"
+          value="/mypage"
           label="マイページ"
           icon={<PersonIcon />}
         />
