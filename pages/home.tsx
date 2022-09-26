@@ -1,5 +1,5 @@
 import Head from '../src/components/head';
-import BottomNavi from './BottomNavi';
+import { BottomNavi } from './BottomNavi';
 import SimpleTabs from './SimpleTabs';
 import styles from '../styles/HomeTab.module.css';
 
@@ -12,7 +12,7 @@ export default function MatchTab() {
         <div>セミナー</div>
         <div>ランキング</div>
       </SimpleTabs>
-      <BottomNavi />
+      <BottomNavi _type="home" />
     </div>
   );
 }

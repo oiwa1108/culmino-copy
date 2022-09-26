@@ -1,5 +1,5 @@
 import Head from '../src/components/head';
-import BottomNavi from './BottomNavi';
+import { BottomNavi } from './BottomNavi';
 import SimpleTabs from './SimpleTabs';
 import styles from '../styles/MatchTab.module.css';
 
@@ -12,7 +12,7 @@ export default function MatchTab() {
         <div>応募した時の相手一覧</div>
         <div>マッチング中の相手一覧</div>
       </SimpleTabs>
-      <BottomNavi />
+      <BottomNavi _type="match" />
     </div>
   );
 }

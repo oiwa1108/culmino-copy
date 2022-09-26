@@ -1,14 +1,14 @@
 import React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { useRouter } from 'next/router';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-export default function BottomNavi(props) {
-  const router = useRouter();
-  const [value, setValue] = React.useState(router.pathname.slice(1) || './'); // アクセス時のURLを解析して、適切なナビゲーションボタンをアクティブにする。
+type BottomNaviProps = { _type: 'home' | 'match' | 'mypage' };
+
+export function BottomNavi(props: BottomNaviProps) {
+  const [value, setValue] = React.useState(props._type); // アクセス時のURLを解析して、適切なナビゲーションボタンをアクティブにする。
 
   return (
     <>
@@ -16,7 +16,6 @@ export default function BottomNavi(props) {
         value={value}
         onChange={async (event, newValue) => {
           setValue(newValue);
-          router.push(newValue);
         }}
         showLabels
         className={'fixed-bottom z-depth-1'}
@@ -27,17 +26,17 @@ export default function BottomNavi(props) {
         }}
       >
         <BottomNavigationAction
-          value="/home"
+          value="home"
           label="ホーム"
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
-          value="/match"
+          value="match"
           label="マッチング"
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
-          value="/mypage"
+          value="mypage"
           label="マイページ"
           icon={<PersonIcon />}
         />
