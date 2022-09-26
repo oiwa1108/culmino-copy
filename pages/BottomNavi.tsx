@@ -1,21 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { useRouter } from 'next/router';
-import HomeIcon from '@material-ui/icons/Home';
-import PersonIcon from '@material-ui/icons/Person';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-
-const useStyles = makeStyles({
-  root: {
-    width: 500,
-  },
-});
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function BottomNavi(props) {
   const router = useRouter();
-  const classes = useStyles();
   const [value, setValue] = React.useState(router.pathname.slice(1) || './'); // アクセス時のURLを解析して、適切なナビゲーションボタンをアクティブにする。
 
   return (
@@ -27,7 +19,12 @@ export default function BottomNavi(props) {
           router.push(newValue);
         }}
         showLabels
-        className={(classes.root, 'fixed-bottom z-depth-1')}
+        className={'fixed-bottom z-depth-1'}
+        sx={{
+          root: {
+            width: 500,
+          },
+        }}
       >
         <BottomNavigationAction
           value="/home"
