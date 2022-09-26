@@ -4,11 +4,13 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useRouter } from 'next/router';
 
 type BottomNaviProps = { _type: 'home' | 'match' | 'mypage' };
 
 export function BottomNavi(props: BottomNaviProps) {
-  const [value, setValue] = React.useState(props._type); // アクセス時のURLを解析して、適切なナビゲーションボタンをアクティブにする。
+  const router = useRouter();
+  const [value, setValue] = React.useState(props._type);
 
   return (
     <>
@@ -16,6 +18,7 @@ export function BottomNavi(props: BottomNaviProps) {
         value={value}
         onChange={async (event, newValue) => {
           setValue(newValue);
+          router.push(newValue);
         }}
         showLabels
         className={'fixed-bottom z-depth-1'}
