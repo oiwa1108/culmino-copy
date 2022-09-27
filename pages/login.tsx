@@ -1,14 +1,8 @@
-import styles from '../styles/login.module.css';
+import styles from '../styles/login.module.scss';
 import Header from '../src/components/header';
 import Head from '../src/components/head';
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from '@chakra-ui/react';
-import { Input } from '@chakra-ui/react';
-import { Button, ButtonGroup } from '@chakra-ui/react';
+
+import { FormControl, TextField, Button, Link } from '@mui/material';
 
 export default function Login() {
   return (
@@ -16,32 +10,41 @@ export default function Login() {
       <Head />
       <Header />
       <div className={styles.container}>
-        <img
-          src="/image/mainlogo.jpg"
-          alt="Culminoメインロゴ"
-          className={styles.logo}
-        />
-        <FormControl>
-          <FormLabel>ユーザー名</FormLabel>
-          <Input type="text" />
-          <FormLabel>パスワード</FormLabel>
-          <Input type="password" />
-          <a href="/HomeTab">
-            <Button
-              className={styles.btn}
-              bg="#f7c6bd"
-              textColor="white"
-              _hover={{ bg: '#ff6c94' }}
-            >
-              ログイン
-            </Button>
-          </a>
-          <FormHelperText className={styles.txt}>
+        <div className={styles.logoWrap}>
+          <img
+            src="/image/mainlogo.jpg"
+            alt="Culmino"
+            className={styles.logo}
+          />
+        </div>
+        <FormControl fullWidth>
+          <TextField
+            id="userName"
+            label="ユーザー名"
+            variant="outlined"
+            margin="dense"
+            fullWidth
+          />
+          <TextField
+            id="password"
+            label="パスワード"
+            variant="outlined"
+            margin="dense"
+            fullWidth
+          />
+          <Button variant="contained" size="large" className={styles.button}>
+            ログイン
+          </Button>
+          <p className={styles.borderText}>
+            <span>または</span>
+          </p>
+          <p className={styles.text}>
             アカウントをお持ちでない方は
-          </FormHelperText>
-          <a href="#">
-            <p className={styles.there}>こちら</p>
-          </a>
+            <br />
+            <Link href="/signup/1" underline="always">
+              こちら
+            </Link>
+          </p>
         </FormControl>
       </div>
     </div>
