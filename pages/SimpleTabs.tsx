@@ -1,16 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
+import Paper from '@mui/material/Paper';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 import styles from '../styles/Home.module.css';
-
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-});
 
 // 追加
 const TabPanel = (props) => {
@@ -30,7 +23,6 @@ const TabPanel = (props) => {
 };
 
 export default function SimpleTabs(props) {
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -39,7 +31,13 @@ export default function SimpleTabs(props) {
 
   return (
     <div className={styles.all}>
-      <Paper className={classes.root}>
+      <Paper
+        sx={{
+          root: {
+            flexGrow: 1,
+          },
+        }}
+      >
         <Tabs
           value={value}
           onChange={handleChange}
