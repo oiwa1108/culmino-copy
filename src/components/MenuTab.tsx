@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import styles from '../styles/Home.module.css';
+import styles from '@styles/Home.module.css';
 
 // 追加
 const TabPanel = (props) => {
@@ -22,7 +22,7 @@ const TabPanel = (props) => {
   );
 };
 
-export default function SimpleTabs(props) {
+export function MenuTab(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
