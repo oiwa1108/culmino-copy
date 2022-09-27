@@ -1,5 +1,5 @@
 import Head from '../src/components/head';
-import { BottomNavi } from './BottomNavi';
+import { BottomNavi } from '@components/BottomNavi';
 import SimpleTabs from './SimpleTabs';
 import styles from '../styles/MatchTab.module.css';
 
