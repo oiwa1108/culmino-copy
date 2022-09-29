@@ -77,7 +77,7 @@ paths:
                 type: integer
 
       responses:
-        200:
+        201:
           description: '操作が終わった時点での残高'
           schema:
             type: 'object'
@@ -158,6 +158,33 @@ paths:
           description: '指定したIDのセミナー情報'
           schema:
               $ref: '#/components/schemas/Seminar'
+    post:
+      summary: セミナーに参加登録を行うAPI
+      description: 指定されたseminarIdのセミナーに参加登録を行います
+      consumes:
+        - application/json
+      parameters:
+        - name: 'seminarId'
+          in: 'path'
+          description: '参加したいセミナーのID'
+          required: true
+          type: integer
+        - in: body
+          name: registration
+          description: セミナー参加登録
+          schema:
+            type: object
+            required:
+              - userId
+            properties:
+              userId:
+                type: string
+
+      responses:
+        201:
+          description: '参加登録したセミナー情報'
+          schema:
+            $ref: '#/components/schemas/Seminar'
 
 components:
   schemas:
