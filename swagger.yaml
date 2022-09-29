@@ -1,0 +1,96 @@
+swagger: '2.0'
+info:
+  description: 'CulminoのバックエンドAPIです。'
+  version: '1.0.0'
+  title: 'Culmino API'
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: 'apiteam@swagger.io'
+  license:
+    name: 'Apache 2.0'
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /users/{userId}:
+    get:
+      summary: 'ユーザ情報API'
+      description: '指定されたuserIdの情報を返します'
+      parameters:
+        - name: 'userId'
+          in: 'path'
+          description: '取得したいユーザのID'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+  /users/{userId}/coins:
+    get:
+      summary: 'コイン情報API'
+      description: '指定されたuserIdのユーザが持っているコイン残高を返します'
+      parameters:
+        - name: 'userId'
+          in: 'path'
+          description: 'コイン残高を取得したいユーザのID'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+  /instructors/:
+    get:
+      summary: 'インストラクター一覧情報API'
+      description: 'インストラクターの一覧情報を返します'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'array'
+            items:
+              type: 'object'
+              properties:
+                id:
+                  type: 'string'
+
+  /instructors/{instructorId}:
+    get:
+      summary: 'インストラクター情報API'
+      description: '指定したinstructorIdのインストラクターの情報を返します'
+      parameters:
+        - name: 'instructorId'
+          in: 'path'
+          description: '取得したいインストラクターのID'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+
+  /seminars/:
+    get:
+      summary: 'セミナー一覧情報API'
+      description: 'セミナーの一覧情報を返します'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'array'
+            items:
+              type: 'object'
+              properties:
+                id:
+                  type: 'string'
