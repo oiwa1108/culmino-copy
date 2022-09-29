@@ -46,6 +46,22 @@ paths:
             properties:
               id:
                 type: 'string'
+  /users/{userId}/seminars:
+    get:
+      summary: '参加セミナー一覧取得API'
+      description: 'ユーザが参加しているセミナー一覧を取得するAPI'
+      parameters:
+        - name: 'userId'
+          in: 'path'
+          description: 'セミナー一覧を取得したいユーザのID'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            $ref: '#/components/schemas/Seminar'
+
   /instructors/:
     get:
       summary: 'インストラクター一覧情報API'
@@ -56,10 +72,7 @@ paths:
           schema:
             type: 'array'
             items:
-              type: 'object'
-              properties:
-                id:
-                  type: 'string'
+              $ref: '#/components/schemas/Instructor'
 
   /instructors/{instructorId}:
     get:
@@ -75,10 +88,7 @@ paths:
         200:
           description: '成功時のレスポンス'
           schema:
-            type: 'object'
-            properties:
-              id:
-                type: 'string'
+            $ref: '#/components/schemas/Instructor'
 
   /seminars/:
     get:
@@ -90,7 +100,53 @@ paths:
           schema:
             type: 'array'
             items:
-              type: 'object'
-              properties:
-                id:
-                  type: 'string'
+              $ref: '#/components/schemas/Seminar'
+
+components:
+  schemas:
+    Instructor:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        avg_rating:
+          type: number
+          format: float
+        sex:
+          type: string
+        icon_img_url:
+          type: string
+        hitokoto:
+          type: string
+        self-introduction:
+          type: string
+        sns_link:
+          type: string
+        specialty:
+          type: string
+
+    Seminar:
+      type: object
+      properties:
+        id:
+          type: integer
+        start_datetime:
+          type: string
+          format: date-time
+        end_datetime:
+          type: string
+          format: date-time
+        video_chat_url:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+        thumbnail_img_url:
+          type: string
+        price:
+          type: integer
