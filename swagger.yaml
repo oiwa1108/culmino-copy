@@ -143,6 +143,22 @@ paths:
             items:
               $ref: '#/components/schemas/Seminar'
 
+  /seminars/{seminarId}:
+    get:
+      summary: 'セミナー情報取得API'
+      description: '指定したIDのセミナーの情報を返します'
+      parameters:
+      - in: path
+        name: seminarId
+        required: true
+        description: 情報を取得したいセミナーのID
+        type: integer
+      responses:
+        200:
+          description: '指定したIDのセミナー情報'
+          schema:
+              $ref: '#/components/schemas/Seminar'
+
 components:
   schemas:
     Instructor:
