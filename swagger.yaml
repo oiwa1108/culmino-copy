@@ -46,6 +46,45 @@ paths:
             properties:
               id:
                 type: 'string'
+    post:
+      summary: 'コイン残高操作API'
+      description: '指定されたuserIdのユーザが持っているコイン残高を操作します'
+      consumes:
+        - application/json
+      parameters:
+        - name: 'userId'
+          in: 'path'
+          description: 'コイン残高を操作したいユーザのID'
+          required: true
+          type: 'string'
+        - in: body
+          name: transaction
+          description: コイン残高の操作方法（支払い/チャージ）と金額
+          schema:
+            type: object
+            required:
+              - method
+              - amount
+            properties:
+              method:
+                type: string
+                enum: [pay, add]
+                description: >
+                  操作方法:
+                    * pay - 残高から支払い.
+                    * add - 残高にチャージ.
+              amount:
+                type: integer
+
+      responses:
+        200:
+          description: '操作が終わった時点での残高'
+          schema:
+            type: 'object'
+            properties:
+              coinBalance:
+                type: integer
+
   /users/{userId}/seminars:
     get:
       summary: '参加セミナー一覧取得API'
