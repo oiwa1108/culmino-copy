@@ -58,9 +58,11 @@ paths:
           type: 'string'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '指定したIDのユーザが参加しているセミナーのリスト'
           schema:
-            $ref: '#/components/schemas/Seminar'
+            type: array
+            items:
+              $ref: '#/components/schemas/Seminar'
 
   /instructors/:
     get:
@@ -68,7 +70,7 @@ paths:
       description: 'インストラクターの一覧情報を返します'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '全てのインストラクターの情報のリスト'
           schema:
             type: 'array'
             items:
@@ -86,7 +88,7 @@ paths:
           type: 'string'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '指定したIDのインストラクターの情報'
           schema:
             $ref: '#/components/schemas/Instructor'
 
@@ -96,7 +98,7 @@ paths:
       description: 'セミナーの一覧情報を返します'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '全てのセミナー情報のリスト'
           schema:
             type: 'array'
             items:
