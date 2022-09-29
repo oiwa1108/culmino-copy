@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import styles from '@styles/Home.module.css';
 
-// 追加
-const TabPanel = (props) => {
+type TabPanelProps = {
+  children: ReactNode;
+  value: number;
+  index: number;
+};
+
+type MenuTabProps = {
+  labels: string[];
+  children: ReactNode[];
+};
+
+const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -22,10 +32,10 @@ const TabPanel = (props) => {
   );
 };
 
-export function MenuTab(props) {
+export function MenuTab(props: MenuTabProps) {
+  const { labels, children } = props;
   const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
+  const handleChange = (event: any, newValue: React.SetStateAction<number>) => {
     setValue(newValue);
   };
 
@@ -45,28 +55,14 @@ export function MenuTab(props) {
           textColor="primary"
           centered
         >
-          {/* <Tab label="募集・応募" />
-              <Tab label="セミナー" />
-              <Tab label="ランキング" /> */}
-          {props.labels.map((label) => (
-            <Tab label={label}></Tab>
+          {labels.map((label, index) => (
+            <Tab label={label} key={index}></Tab>
           ))}
         </Tabs>
       </Paper>
 
-      {/* 公式ドキュメントの各タブのコンテンツ
-        <TabPanel value={value} index={0}>
-            募集一覧
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-            セミナー情報
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-            ランキング情報
-        </TabPanel>
-        */}
-      {props.children.map((child, index) => (
-        <TabPanel value={value} index={index}>
+      {children.map((child, index) => (
+        <TabPanel value={value} index={index} key={index}>
           {child}
         </TabPanel>
       ))}
