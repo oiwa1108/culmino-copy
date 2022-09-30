@@ -1,0 +1,32 @@
+.all {
+  max-width: 375px;
+  margin: 0 auto;
+  font-family: 'Yomogi', cursive;
+}
+
+.container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 120px 120px;
+  gap: 30px;
+  grid-template-rows: 120px 120px 120px;
+  justify-content: center;
+}
+
+.item {
+  background: #f69679;
+  padding: 10px;
+  color: #fff;
+}
+
+.bottomTitle {
+  width: 180px;
+  margin: 50px 0 0 0;
+  padding: 20px;
+  background: #f69679;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
