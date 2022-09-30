@@ -3,7 +3,6 @@ import reduxStore from 'redux/store';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { Provider } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import theme from '../src/theme';
 

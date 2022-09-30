@@ -10,7 +10,6 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.2.8",
     "@emotion/cache": "11.10.1",
     "@emotion/react": "11.10.0",
     "@emotion/server": "11.10.0",
@@ -38,8 +37,7 @@
     "@types/react-dom": "^17.0.0",
     "cookie": "^0.4.2",
     "js-cookie": "^3.0.1",
-    "js-base64": "^3.7.2",
-    "bootstrap": "^4.0.0"
+    "js-base64": "^3.7.2"
   },
   "devDependencies": {
     "@types/node": "18.7.4",
