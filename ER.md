@@ -11,7 +11,10 @@ erDiagram
     float avg_rating_float "NOT NULL"
     string sex "NOT NULL"
     string icon_img_url "NOT NULL"
-    string job "NOT NULL"
+    string hitokoto
+    string self-introduction
+    string sns_link
+    string specialty
   }
 
   Seminars ||--o{ SeminarsInstructors: ""
