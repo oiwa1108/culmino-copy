@@ -20,6 +20,7 @@ erDiagram
   Seminars ||--o{ SeminarsInstructors: ""
   Seminars ||--o{ RatingsToSeminar: ""
   Seminars ||--o{ SeminarsUsers: ""
+  Seminars ||--o{ SeminarSchedules: ""
   Seminars{
     int id PK "NOT NULL"
     datetime start_datetime "NOT NULL"
@@ -46,6 +47,12 @@ erDiagram
     int id PK "NOT NULL"
     int seminar_id FK "NOT NULL"
     string user_id FK "NOT NULL"
+  }
+  SeminarSchedules{
+    int id PK "NOT NULL"
+    int seminar_id FK "NOT NULL"
+    datetime start_datetime "NOT NULL"
+    datetime end_datetime "NOT NULL"
   }
 
   Users ||--o{ SeminarsUsers: ""
