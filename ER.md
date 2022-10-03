@@ -59,6 +59,7 @@ erDiagram
     int to_seminar_id FK "NOT NULL"
     string from_user_id FK "NOT NULL"
     int score "NOT NULL"
+    string comment
   }
   SeminarsUsers{
     int id PK "NOT NULL"
