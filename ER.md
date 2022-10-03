@@ -84,6 +84,7 @@ erDiagram
   Users ||--o{ RequestsUsers: ""
   Users ||--o{ ChatMessages: ""
   Users ||--o{ ChatRoomsUsers: ""
+  LivingArea ||--o{ Users: ""
   Users{
     string id PK
     string name "NOT NULL"
@@ -95,6 +96,15 @@ erDiagram
     string sex "NOT NULL"
     string icon_img_url "NOT NULL"
     string job "NOT NULL"
+    date birthday "NOT NULL"
+    int living_area_id FK
+    string self-introduction
+  }
+  LivingArea{
+    int id PK "NOT NULL"
+    string name "NOT NULL"
+    double lat "NOT NULL"
+    double lng "NOT NULL"
   }
   RatingsToUser{
     int id PK "NOT NULL"
