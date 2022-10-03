@@ -37,6 +37,7 @@ erDiagram
   Seminars ||--o{ SeminarsUsers: ""
   Seminars ||--o{ SeminarSchedules: ""
   Seminars ||--|{ InstructorTransactionsSeminars: ""
+  Seminars ||--|{ UserTransactionsSeminars: ""
   Seminars{
     int id PK "NOT NULL"
     datetime start_datetime "NOT NULL"
@@ -85,6 +86,9 @@ erDiagram
   Users ||--o{ ChatMessages: ""
   Users ||--o{ ChatRoomsUsers: ""
   LivingArea ||--o{ Users: ""
+  Users ||--o{ UserTransactions: ""
+  UserTransactions ||--o| UserTransactionsSeminars: ""
+  TransactionItemTypes ||--o{ UserTransactions: ""
   Users{
     string id PK
     string name "NOT NULL"
@@ -130,8 +134,19 @@ erDiagram
     string user_id FK "NOT NULL"
     int chat_room_id FK "NOT NULL"
   }
-
-  Requests ||--o{ RequestsUsers: ""
+  UserTransactions{
+    int id PK "NOT NULL"
+    int amount_yen "NOT NULL"
+    int amount_coin "NOT NULL"
+    bool is_payment "NOT NULL"
+    string summary "NOT NULL"
+    int transaction_item_type_id FK "NOT NULL"
+  }
+  UserTransactionsSeminars{
+    int id PK "NOT NULL"
+    int user_transaction_id FK "NOT NULL"
+    int seminar_id FK "NOT NULL"
+  }
   ChatRooms ||--o{ ChatRoomsUsers: ""
   ChatRooms ||--o{ ChatMessages: ""
   Requests{
