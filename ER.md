@@ -47,6 +47,7 @@ erDiagram
     string summary
     string content
     string thumbnail_img_url
+    bool is_application_needed "NOT NULL"
   }
   SeminarsInstructors{
     int id PK "NOT NULL"
