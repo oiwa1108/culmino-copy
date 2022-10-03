@@ -91,6 +91,7 @@ erDiagram
   TransactionItemTypes ||--o{ UserTransactions: ""
   Users{
     string id PK
+    string password_hashed "NOT NULL"
     string name "NOT NULL"
     string mail_address "NOT NULL"
     string phone_number "NOT NULL"
