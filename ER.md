@@ -111,6 +111,7 @@ erDiagram
     string to_user_id FK "NOT NULL"
     string from_user_id FK "NOT NULL"
     int score "NOT NULL"
+    string comment
   }
   RequestsUsers{
     int id PK "NOT NULL"
