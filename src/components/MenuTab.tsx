@@ -31,7 +31,7 @@ export function MenuTab(props: MenuTabProps) {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          centered
+          variant="fullWidth"
         >
           {labels.map((label, index) => (
             <Tab label={label} key={index}></Tab>
