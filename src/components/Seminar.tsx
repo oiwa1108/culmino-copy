@@ -1,7 +1,7 @@
-import { Cards } from '@components/Cards';
+import { SeminarCards } from '@components/SeminarCards';
 
 export function Seminar() {
-  const SeminarData = [
+  const seminarCards = [
     {
       id: '1',
       name: 'インストラクター1',
@@ -26,5 +26,5 @@ export function Seminar() {
     },
   ];
 
-  return <Cards cardsData={SeminarData} />;
+  return <SeminarCards seminarCards={seminarCards} />;
 }

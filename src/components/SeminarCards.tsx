@@ -15,7 +15,7 @@ import {
   Link,
 } from '@mui/material';
 
-type CardsData = {
+type Seminar = {
   id: string;
   name: string;
   avg_rating: number;
@@ -27,12 +27,12 @@ type CardsData = {
   specialty?: string;
 };
 
-type CardsProps = {
-  cardsData: CardsData[];
+type SeminarCardsProps = {
+  seminarCards: Seminar[];
 };
 
-export function Cards(props: CardsProps) {
-  const { cardsData } = props;
+export function SeminarCards(props: SeminarCardsProps) {
+  const { seminarCards } = props;
   const [selectedItem, setSelectedItem] = useState('');
 
   const openDialog = (id: string) => {
@@ -45,7 +45,7 @@ export function Cards(props: CardsProps) {
 
   return (
     <List>
-      {cardsData.map((item, index) => {
+      {seminarCards.map((item, index) => {
         return (
           <React.Fragment key={index}>
             <ListItem
