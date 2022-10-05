@@ -33,7 +33,7 @@ type CardsProps = {
 
 export function Cards(props: CardsProps) {
   const { cardsData } = props;
-  const [selectedItem, setSelectedItem] = useState<string>('');
+  const [selectedItem, setSelectedItem] = useState('');
 
   const openDialog = (id: string) => {
     setSelectedItem(id);
