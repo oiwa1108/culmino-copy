@@ -1,0 +1,43 @@
+.item {
+  border: 2px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.item_content {
+  flex: 1;
+  padding-left: 14px;
+  font-weight: 600;
+}
+
+.item_name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.modal_name {
+  flex: 1;
+  padding-left: 14px;
+  font-weight: 600;
+}
+
+.modal_text_tag {
+  font-weight: bold;
+}
+
+.modal_link {
+  display: inline-block;
+  padding: 4px 14px;
+  color: #fff;
+  background-color: #fa8072;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 14px;
+  font-family: 'Yomogi';
+
+  &:hover {
+    opacity: 0.8;
+    color: #fff;
+    text-decoration: none;
+  }
+}
