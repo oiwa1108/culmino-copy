@@ -11,7 +11,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 paths:
-  /signup/:
+  /signup/user:
     post:
       summary: 'ユーザ登録API'
       description: 'ペイロードの情報をもとにユーザアカウント作成します'
@@ -22,6 +22,44 @@ paths:
           required: true
           schema:
             $ref: '#/components/schemas/SignUpUser'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+  /verify/mail_address/:
+    post:
+      summary: 'メール認証API'
+      description: 'ペイロードの情報でメールアドレスの認証を行います'
+      parameters:
+        - name: 'verification_number'
+          in: 'body'
+          description: '認証番号'
+          required: true
+          schema:
+            $ref: '#/components/schemas/VerificationNumber'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+  /verify/phone_number/:
+    post:
+      summary: '電話番号認証API'
+      description: 'ペイロードの情報で電話番号の認証を行います'
+      parameters:
+        - name: 'verification_number'
+          in: 'body'
+          description: '認証番号'
+          required: true
+          schema:
+            $ref: '#/components/schemas/VerificationNumber'
       responses:
         200:
           description: '成功時のレスポンス'
@@ -271,3 +309,8 @@ components:
           format: date
         living_area_id:
           type: integer
+    VerificationNumber:
+      type: object
+      properties:
+        verification_number:
+          type: string
