@@ -1,6 +1,9 @@
 ```mermaid
 erDiagram
   Instructors ||--o{ SeminarsInstructors: ""
+  Instructors ||--o{ InstructorTransactions: ""
+  InstructorTransactions ||--o| InstructorTransactionsSeminars: ""
+  TransactionItemTypes ||--o{ InstructorTransactions: ""
   Instructors{
     string id PK
     string name "NOT NULL"
@@ -11,12 +14,29 @@ erDiagram
     float avg_rating_float "NOT NULL"
     string sex "NOT NULL"
     string icon_img_url "NOT NULL"
-    string job "NOT NULL"
+    string hitokoto
+    string self-introduction
+    string sns_link
+    string specialty
+  }
+  InstructorTransactions{
+    int id PK "NOT NULL"
+    int amount_coin "NOT NULL"
+    int amount_yen "NOT NULL"
+    bool is_payment "NOT NULL"
+    string summary "NOT NULL"
+    int transaction_item_type_id FK "NOT NULL"
+  }
+  TransactionItemTypes{
+    int id PK "NOT NULL"
+    string item_name "NOT NULL"
   }
 
   Seminars ||--o{ SeminarsInstructors: ""
   Seminars ||--o{ RatingsToSeminar: ""
   Seminars ||--o{ SeminarsUsers: ""
+  Seminars ||--o{ SeminarSchedules: ""
+  Seminars ||--|{ InstructorTransactionsSeminars: ""
   Seminars{
     int id PK "NOT NULL"
     datetime start_datetime "NOT NULL"
@@ -27,6 +47,7 @@ erDiagram
     string summary
     string content
     string thumbnail_img_url
+    bool is_application_needed "NOT NULL"
   }
   SeminarsInstructors{
     int id PK "NOT NULL"
@@ -38,11 +59,23 @@ erDiagram
     int to_seminar_id FK "NOT NULL"
     string from_user_id FK "NOT NULL"
     int score "NOT NULL"
+    string comment
   }
   SeminarsUsers{
     int id PK "NOT NULL"
     int seminar_id FK "NOT NULL"
     string user_id FK "NOT NULL"
+  }
+  SeminarSchedules{
+    int id PK "NOT NULL"
+    int seminar_id FK "NOT NULL"
+    datetime start_datetime "NOT NULL"
+    datetime end_datetime "NOT NULL"
+  }
+  InstructorTransactionsSeminars{
+    int id PK "NOT NULL"
+    int instructor_transaction_id FK "NOT NULL"
+    int seminar_id FK "NOT NULL"
   }
 
   Users ||--o{ SeminarsUsers: ""

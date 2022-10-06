@@ -46,20 +46,74 @@ paths:
             properties:
               id:
                 type: 'string'
+    post:
+      summary: 'コイン残高操作API'
+      description: '指定されたuserIdのユーザが持っているコイン残高を操作します'
+      consumes:
+        - application/json
+      parameters:
+        - name: 'userId'
+          in: 'path'
+          description: 'コイン残高を操作したいユーザのID'
+          required: true
+          type: 'string'
+        - in: body
+          name: transaction
+          description: コイン残高の操作方法（支払い/チャージ）と金額
+          schema:
+            type: object
+            required:
+              - method
+              - amount
+            properties:
+              method:
+                type: string
+                enum: [pay, add]
+                description: >
+                  操作方法:
+                    * pay - 残高から支払い.
+                    * add - 残高にチャージ.
+              amount:
+                type: integer
+
+      responses:
+        201:
+          description: '操作が終わった時点での残高'
+          schema:
+            type: 'object'
+            properties:
+              coinBalance:
+                type: integer
+
+  /users/{userId}/seminars:
+    get:
+      summary: '参加セミナー一覧取得API'
+      description: 'ユーザが参加しているセミナー一覧を取得するAPI'
+      parameters:
+        - name: 'userId'
+          in: 'path'
+          description: 'セミナー一覧を取得したいユーザのID'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: '指定したIDのユーザが参加しているセミナーのリスト'
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Seminar'
+
   /instructors/:
     get:
       summary: 'インストラクター一覧情報API'
       description: 'インストラクターの一覧情報を返します'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '全てのインストラクターの情報のリスト'
           schema:
             type: 'array'
             items:
-              type: 'object'
-              properties:
-                id:
-                  type: 'string'
+              $ref: '#/components/schemas/Instructor'
 
   /instructors/{instructorId}:
     get:
@@ -73,12 +127,9 @@ paths:
           type: 'string'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '指定したIDのインストラクターの情報'
           schema:
-            type: 'object'
-            properties:
-              id:
-                type: 'string'
+            $ref: '#/components/schemas/Instructor'
 
   /seminars/:
     get:
@@ -86,11 +137,100 @@ paths:
       description: 'セミナーの一覧情報を返します'
       responses:
         200:
-          description: '成功時のレスポンス'
+          description: '全てのセミナー情報のリスト'
           schema:
             type: 'array'
             items:
-              type: 'object'
-              properties:
-                id:
-                  type: 'string'
+              $ref: '#/components/schemas/Seminar'
+
+  /seminars/{seminarId}:
+    get:
+      summary: 'セミナー情報取得API'
+      description: '指定したIDのセミナーの情報を返します'
+      parameters:
+      - in: path
+        name: seminarId
+        required: true
+        description: 情報を取得したいセミナーのID
+        type: integer
+      responses:
+        200:
+          description: '指定したIDのセミナー情報'
+          schema:
+              $ref: '#/components/schemas/Seminar'
+    post:
+      summary: セミナーに参加登録を行うAPI
+      description: 指定されたseminarIdのセミナーに参加登録を行います
+      consumes:
+        - application/json
+      parameters:
+        - name: 'seminarId'
+          in: 'path'
+          description: '参加したいセミナーのID'
+          required: true
+          type: integer
+        - in: body
+          name: registration
+          description: セミナー参加登録
+          schema:
+            type: object
+            required:
+              - userId
+            properties:
+              userId:
+                type: string
+
+      responses:
+        201:
+          description: '参加登録したセミナー情報'
+          schema:
+            $ref: '#/components/schemas/Seminar'
+
+components:
+  schemas:
+    Instructor:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        avg_rating:
+          type: number
+          format: float
+        sex:
+          type: string
+        icon_img_url:
+          type: string
+        hitokoto:
+          type: string
+        self-introduction:
+          type: string
+        sns_link:
+          type: string
+        specialty:
+          type: string
+
+    Seminar:
+      type: object
+      properties:
+        id:
+          type: integer
+        start_datetime:
+          type: string
+          format: date-time
+        end_datetime:
+          type: string
+          format: date-time
+        video_chat_url:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        content:
+          type: string
+        thumbnail_img_url:
+          type: string
+        price:
+          type: integer
