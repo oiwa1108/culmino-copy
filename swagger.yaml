@@ -9,7 +9,65 @@ info:
   license:
     name: 'Apache 2.0'
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
 paths:
+  /signup/user:
+    post:
+      summary: 'ユーザ登録API'
+      description: 'ペイロードの情報をもとにユーザアカウント作成します'
+      parameters:
+        - name: 'signup'
+          in: 'body'
+          description: '登録したいユーザの情報'
+          required: true
+          schema:
+            $ref: '#/components/schemas/SignUpUser'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+  /verify/mail_address/:
+    post:
+      summary: 'メール認証API'
+      description: 'ペイロードの情報でメールアドレスの認証を行います'
+      parameters:
+        - name: 'verification_number'
+          in: 'body'
+          description: '認証番号'
+          required: true
+          schema:
+            $ref: '#/components/schemas/VerificationNumber'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
+  /verify/phone_number/:
+    post:
+      summary: '電話番号認証API'
+      description: 'ペイロードの情報で電話番号の認証を行います'
+      parameters:
+        - name: 'verification_number'
+          in: 'body'
+          description: '認証番号'
+          required: true
+          schema:
+            $ref: '#/components/schemas/VerificationNumber'
+      responses:
+        200:
+          description: '成功時のレスポンス'
+          schema:
+            type: 'object'
+            properties:
+              id:
+                type: 'string'
   /users/{userId}:
     get:
       summary: 'ユーザ情報API'
@@ -210,7 +268,6 @@ components:
           type: string
         specialty:
           type: string
-
     Seminar:
       type: object
       properties:
@@ -234,3 +291,26 @@ components:
           type: string
         price:
           type: integer
+    SignUpUser:
+      type: 'object'
+      properties:
+        id:
+          type: 'string'
+        password:
+          type: string
+        name:
+          type: string
+        mail_address:
+          type: string
+        phone_number:
+          type: string
+        birthday:
+          type: string
+          format: date
+        living_area_id:
+          type: integer
+    VerificationNumber:
+      type: object
+      properties:
+        verification_number:
+          type: string
