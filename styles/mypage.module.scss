@@ -1,0 +1,57 @@
+.mypage {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px 56px;
+  font-weight: 600;
+  font-family: 'Yomogi', cursive;
+
+  &_profile {
+    padding: 70px 0;
+    text-align: center;
+  }
+
+  &_avatarWrap {
+    display: inline-block;
+  }
+
+  &_name {
+    display: block;
+    color: #333;
+
+    span {
+      position: relative;
+    }
+  }
+
+  &_ratingWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_item {
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &_link {
+    width: 100%;
+    display: block;
+    padding: 12px 6px;
+    color: #333;
+  }
+
+  &_arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  &_nameArrow {
+    position: absolute;
+    top: 55%;
+    right: -24px;
+    transform: translateY(-50%);
+  }
+}
