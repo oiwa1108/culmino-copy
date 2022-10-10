@@ -6,7 +6,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function MyPage() {
   const mypageMenu = [
-    { href: '#', title: 'プロフィール編集' },
+    { href: '#', title: 'プロフィールの編集' },
     { href: '#', title: 'コイン' },
     { href: '#', title: 'トレーニング履歴' },
     { href: '#', title: 'トレーニングレポート' },
