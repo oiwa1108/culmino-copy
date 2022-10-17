@@ -1,0 +1,13 @@
+.singUp {
+  max-width: 375px;
+  margin: 0 auto;
+  font-family: 'Yomogi', cursive;
+  padding: 20px;
+
+  &_button {
+    display: block;
+    width: 55%;
+    margin: 40px auto 0;
+    font-weight: 600;
+  }
+}
