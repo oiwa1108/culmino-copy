@@ -29,6 +29,7 @@ export function FormInput(props: FormInputProps) {
         value={value}
         type={type && type}
         className={styles.input}
+        autoComplete="on"
         onChange={onChange}
       />
     </FormControl>
