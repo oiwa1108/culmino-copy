@@ -41,7 +41,7 @@ export default function Login() {
           <p className={styles.text}>
             アカウントをお持ちでない方は
             <br />
-            <Link href="/signup/1" underline="always">
+            <Link href="/terms" underline="always">
               こちら
             </Link>
           </p>
