@@ -262,7 +262,7 @@ export default function Terms() {
             className={styles.terms_agreeButton}
             variant="contained"
             disabled={agree}
-            onClick={() => router.push('/signup')}
+            onClick={() => router.push('/signUp')}
             sx={{
               '&:hover': {
                 backgroundColor: 'primary.main',
