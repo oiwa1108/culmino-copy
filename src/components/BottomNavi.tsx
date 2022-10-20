@@ -1,9 +1,10 @@
 import React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
+import School from '@mui/icons-material/School';
+import Event from '@mui/icons-material/Event';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useRouter } from 'next/router';
 
 type BottomNaviProps = { _type: 'home' | 'match' | 'mypage' };
@@ -28,21 +29,10 @@ export function BottomNavi(props: BottomNaviProps) {
           },
         }}
       >
-        <BottomNavigationAction
-          value="home"
-          label="ホーム"
-          icon={<HomeIcon />}
-        />
-        <BottomNavigationAction
-          value="match"
-          label="マッチング"
-          icon={<FavoriteIcon />}
-        />
-        <BottomNavigationAction
-          value="mypage"
-          label="マイページ"
-          icon={<PersonIcon />}
-        />
+        <BottomNavigationAction value="home" icon={<School />} />
+        <BottomNavigationAction value="match" icon={<FavoriteIcon />} />
+        <BottomNavigationAction value="schedule" icon={<Event />} />
+        <BottomNavigationAction value="mypage" icon={<AccountCircle />} />
       </BottomNavigation>
     </>
   );
