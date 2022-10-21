@@ -42,7 +42,7 @@ export default function signUp() {
     <>
       <Head />
       <Header />
-      <Box className={styles.singUp}>
+      <Box className={styles.signUp}>
         <Box component="form" onSubmit={handleSubmit}>
           <FormInput
             label="名前"
@@ -98,7 +98,7 @@ export default function signUp() {
             variant="contained"
             size="large"
             type="submit"
-            className={styles.singUp_button}
+            className={styles.signUp_button}
           >
             登録
           </Button>
