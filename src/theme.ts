@@ -17,6 +17,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: ['Yomogi'].join(','),
+    subtitle1: {
+      fontsize: 16,
+    },
   },
 });
 

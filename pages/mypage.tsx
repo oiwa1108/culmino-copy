@@ -1,4 +1,5 @@
 import Head from '../src/components/head';
+import { Heading } from '../src/components/Heading';
 import styles from '../styles/mypage.module.scss';
 import { BottomNavi } from '@components/BottomNavi';
 import { Avatar, Rating, Link, Box, List, ListItem } from '@mui/material';
@@ -30,6 +31,7 @@ export default function MyPage() {
 
   return (
     <>
+      <Heading title={'ユーザー'} />
       <Head />
       <Box className={styles.mypage}>
         <Box className={styles.mypage_profile}>
