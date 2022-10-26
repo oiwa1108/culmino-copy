@@ -19,8 +19,8 @@ export const Navigations: React.FC<{
 }> = ({ navList, sx }) => (
   <List>
     <nav>
-      {navList.map((nav) => (
-        <ListItem sx={sx}>
+      {navList.map((nav, index) => (
+        <ListItem sx={sx} key={index}>
           <NavLink href={nav.href}>{nav.text}</NavLink>
         </ListItem>
       ))}
