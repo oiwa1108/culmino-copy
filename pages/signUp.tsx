@@ -45,10 +45,10 @@ export default function signUp() {
       <Box className={styles.signUp}>
         <Box component="form" onSubmit={handleSubmit}>
           <FormInput
-            label="名前"
+            label="ユーザー名"
             id="name"
             name="name"
-            placeholder="ニックネーム"
+            placeholder="ユーザー名"
             value={inputValue.name}
             required={true}
             onChange={handleInputChange}
