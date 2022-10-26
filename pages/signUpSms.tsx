@@ -5,7 +5,7 @@ import Header from '../src/components/header';
 import Head from '../src/components/head';
 import { FormInput } from '../src/components/formInput';
 
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 export default function signUpSms() {
   const [smsCode, setSmsCode] = useState('');
@@ -25,6 +25,11 @@ export default function signUpSms() {
       <Head />
       <Header />
       <Box className={styles.signUp}>
+        <Typography
+          sx={{ color: 'error.main', fontSize: 15, fontWeight: '600', mb: 2 }}
+        >
+          電話番号認証がまだ完了していません。
+        </Typography>
         <Box component="form" onSubmit={handleSubmit}>
           <FormInput
             label="ご入力いただいた電話番号に送信された6桁のコードを入力してください。"
