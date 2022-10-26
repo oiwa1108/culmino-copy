@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/signUp.module.scss';
 
 import Header from '../src/components/header';
 import Head from '../src/components/head';
 import { FormInput } from '../src/components/formInput';
 import { FormRadio } from '../src/components/formRadio';
+import { FormSelect } from '../src/components/formSelect';
 
-import { Box, Button } from '@mui/material';
+import { Box, Button, SelectChangeEvent, Typography } from '@mui/material';
 
 export default function signUp() {
+  const birthday_years = [...Array(60).keys()]
+    .map((i) => i + 1)
+    .map((i) => new Date().getFullYear() - 78 + i);
+  const birthday_months = [...Array(12).keys()].map((i) => i + 1);
+  const birthday_days = [...Array(31).keys()].map((i) => i + 1);
+
+  const [selectValue, setSelectValue] = useState({
+    year: '',
+    month: '',
+    day: '',
+  });
+
   const [inputValue, setInputValue] = useState({
     name: '',
     email: '',
@@ -23,6 +36,13 @@ export default function signUp() {
     { value: 'neither', label: 'どちらでもない' },
   ];
 
+  useEffect(() => {
+    setInputValue({
+      ...inputValue,
+      ['birthday']: `${selectValue.year}/${selectValue.month}/${selectValue.day}`,
+    });
+  }, [selectValue]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target;
     const name = target.name;
@@ -30,6 +50,17 @@ export default function signUp() {
 
     setInputValue({
       ...inputValue,
+      [name]: value,
+    });
+  };
+
+  const handleSelectChange = (e: SelectChangeEvent) => {
+    const target = e.target;
+    const name = target.name;
+    const value = target.value;
+
+    setSelectValue({
+      ...selectValue,
       [name]: value,
     });
   };
@@ -84,15 +115,39 @@ export default function signUp() {
             onChange={handleInputChange}
           />
 
-          <FormInput
-            label="生年月日"
-            id="birthday"
-            name="birthday"
-            value={inputValue.birthday}
-            type="date"
-            required={true}
-            onChange={handleInputChange}
-          />
+          <Box sx={{ paddingBottom: '20px' }}>
+            <Typography component="label" className={styles.signUp_label}>
+              生年月日
+            </Typography>
+
+            <Box
+              sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}
+            >
+              <FormSelect
+                selectData={birthday_years}
+                label="年"
+                id="year"
+                selectValue={selectValue.year}
+                onChange={handleSelectChange}
+              />
+
+              <FormSelect
+                selectData={birthday_months}
+                label="月"
+                id="month"
+                selectValue={selectValue.month}
+                onChange={handleSelectChange}
+              />
+
+              <FormSelect
+                selectData={birthday_days}
+                label="日"
+                id="day"
+                selectValue={selectValue.day}
+                onChange={handleSelectChange}
+              />
+            </Box>
+          </Box>
 
           <Button
             variant="contained"
