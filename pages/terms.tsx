@@ -233,8 +233,8 @@ export default function Terms() {
   return (
     <>
       <Head />
+      <Header />
       <Box className={styles.terms}>
-        <Header />
         <Box className={styles.terms_container}>
           <h2 className={styles.terms_title}>利用規約</h2>
           {terms.map((item, index) => {

@@ -1,10 +1,5 @@
-.all {
-  max-width: 375px;
-  margin: 0 auto;
-  font-family: 'Yomogi', cursive;
-}
-
 .container {
+  font-family: 'Yomogi', cursive;
   margin-top: 20px;
   display: grid;
   grid-template-columns: 120px 120px;
