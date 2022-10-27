@@ -3,7 +3,7 @@ import Head from '../src/components/head';
 import { Typography, Box, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 
-export default function Complete() {
+export default function SignUpComplete() {
   const router = useRouter();
 
   return (
