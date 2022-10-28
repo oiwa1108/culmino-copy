@@ -6,7 +6,8 @@
 
   &_button {
     display: block;
-    width: 55%;
+    width: auto;
+    min-width: 55%;
     margin: 40px auto 0;
     font-weight: 600;
   }

@@ -155,7 +155,7 @@ export default function signUp() {
             type="submit"
             className={styles.signUp_button}
           >
-            登録
+            次へ(メールアドレス認証)
           </Button>
         </Box>
       </Box>
