@@ -8,7 +8,7 @@ export default function SignUpComplete() {
   return (
     <>
       <Head />
-      <Box sx={{ maxWidth: '375px', margin: '0 auto' }}>
+      <Box>
         <Box sx={{ textAlign: 'center', paddingY: 4, paddingX: 2 }}>
           <Typography sx={{ fontWeight: 600 }}>
             会員登録完了ありがとうございます
