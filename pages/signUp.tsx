@@ -33,7 +33,6 @@ export default function signUp() {
   const radioData = [
     { value: 'male', label: '男性' },
     { value: 'female', label: '女性' },
-    { value: 'neither', label: 'どちらでもない' },
   ];
 
   useEffect(() => {
