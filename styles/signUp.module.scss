@@ -1,0 +1,20 @@
+.signUp {
+  max-width: 375px;
+  margin: 0 auto;
+  font-family: 'Yomogi', cursive;
+  padding: 20px;
+
+  &_button {
+    display: block;
+    width: auto;
+    min-width: 55%;
+    margin: 40px auto 0;
+    font-weight: 600;
+  }
+
+  &_label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+}

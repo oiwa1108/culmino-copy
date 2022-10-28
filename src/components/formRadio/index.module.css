@@ -1,0 +1,13 @@
+.item {
+  padding-bottom: 20px;
+}
+
+.label,
+.input {
+  font-weight: 600;
+  color: #333;
+}
+
+.label {
+  font-size: 15px;
+}
