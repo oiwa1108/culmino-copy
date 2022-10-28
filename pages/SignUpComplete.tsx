@@ -1,4 +1,3 @@
-import Header from '../src/components/header';
 import Head from '../src/components/head';
 import { Typography, Box, Button } from '@mui/material';
 import { useRouter } from 'next/router';
@@ -10,7 +9,6 @@ export default function SignUpComplete() {
     <>
       <Head />
       <Box sx={{ maxWidth: '375px', margin: '0 auto' }}>
-        <Header />
         <Box sx={{ textAlign: 'center', paddingY: 4, paddingX: 2 }}>
           <Typography sx={{ fontWeight: 600 }}>
             会員登録完了ありがとうございます
