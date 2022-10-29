@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/signUp.module.scss';
-
 import Header from '../src/components/header';
 import Head from '../src/components/head';
 import { FormInput } from '../src/components/formInput';
 import { FormRadio } from '../src/components/formRadio';
 import { FormSelect } from '../src/components/formSelect';
-
 import { Box, Button, SelectChangeEvent, Typography } from '@mui/material';
 
 export default function signUp() {
