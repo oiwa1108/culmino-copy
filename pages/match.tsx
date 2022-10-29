@@ -1,11 +1,10 @@
 import Head from '../src/components/head';
 import { BottomNavi } from '@components/BottomNavi';
 import { MenuTab } from '@components/MenuTab';
-import styles from '../styles/MatchTab.module.css';
 
 export default function MatchTab() {
   return (
-    <div className={styles.all}>
+    <>
       <Head />
       <MenuTab labels={['募集', '応募', 'マッチング中']}>
         <div>募集の時の相手一覧</div>
@@ -13,6 +12,6 @@ export default function MatchTab() {
         <div>マッチング中の相手一覧</div>
       </MenuTab>
       <BottomNavi _type="match" />
-    </div>
+    </>
   );
 }

@@ -24,9 +24,8 @@ export function BottomNavi(props: BottomNaviProps) {
         showLabels
         className={'fixed-bottom z-depth-1'}
         sx={{
-          root: {
-            width: 500,
-          },
+          maxWidth: 500,
+          margin: '0 auto',
         }}
       >
         <BottomNavigationAction value="home" icon={<School />} />

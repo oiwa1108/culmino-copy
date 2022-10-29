@@ -6,7 +6,7 @@ import { FormControl, TextField, Button, Link } from '@mui/material';
 
 export default function Login() {
   return (
-    <div className={styles.all}>
+    <>
       <Head />
       <Header />
       <div className={styles.container}>
@@ -47,6 +47,6 @@ export default function Login() {
           </p>
         </FormControl>
       </div>
-    </div>
+    </>
   );
 }

@@ -4,7 +4,7 @@ import Head from '../src/components/head';
 
 export default function Step() {
   return (
-    <div className={styles.all}>
+    <>
       <Head />
       <Header />
       <div className={styles.container}>
@@ -27,6 +27,6 @@ export default function Step() {
       <div className={styles.bottomTitle}>
         <h1>簡単ステップ</h1>
       </div>
-    </div>
+    </>
   );
 }
