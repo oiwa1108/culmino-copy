@@ -6,8 +6,15 @@
 
   &_button {
     display: block;
-    width: 55%;
+    width: auto;
+    min-width: 55%;
     margin: 40px auto 0;
     font-weight: 600;
+  }
+
+  &_label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
   }
 }
