@@ -1,17 +1,43 @@
 import { useRouter } from 'next/router';
-import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { useEffect } from 'react';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
 
-const nameAndRating = (defaultRating: number) => {
+const rating = (defaultRating: number, ratingCount: number) => {
   return (
-    <Stack>
-      <Typography variant="h3">カレン</Typography>
-      <Stack direction="row" spacing={2}>
-        <Rating readOnly defaultValue={defaultRating} />
-        <Typography sx={{ color: 'blue' }}>53</Typography>
-      </Stack>
+    <Stack direction="row">
+      <Rating readOnly defaultValue={defaultRating} />
+      <Typography sx={{ color: 'blue' }}>{ratingCount}</Typography>
+    </Stack>
+  );
+};
+
+const snsIcons = () => {
+  const theme = useTheme();
+
+  return (
+    <Stack direction="row" spacing={1}>
+      <FacebookIcon color="primary" />
+      <TwitterIcon color="primary" />
+      <InstagramIcon color="primary" />
+      <YouTubeIcon color="primary" />
+      <FontAwesomeIcon
+        icon={faTiktok}
+        color={`${theme.palette.primary.main}`}
+      />
     </Stack>
   );
 };
@@ -22,11 +48,27 @@ export default function instructorProfile() {
 
   //TODO: uid が不正なものであれば404のエラーページ表示
   return (
-    <Stack>
-      <Container disableGutters={true} sx={{ width: '100%' }}>
-        <img src="https://picsum.photos/800/600" />
-      </Container>
-      {nameAndRating(3)}
-    </Stack>
+    <Card>
+      <CardMedia
+        component="img"
+        height="375"
+        image="https://picsum.photos/300/400"
+        alt="Paella dish"
+      />
+      <CardHeader
+        title={'カレン'}
+        subheader={
+          <Grid container spacing={6}>
+            <Grid item sm={6}>
+              {rating(3, 53)}
+            </Grid>
+            <Grid item sm={6}>
+              {snsIcons()}
+            </Grid>
+          </Grid>
+        }
+      />
+      <CardContent></CardContent>
+    </Card>
   );
 }
