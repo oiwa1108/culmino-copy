@@ -15,6 +15,9 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+import Chip from '@mui/material/Chip';
+import { Specialty } from '@models/instructor';
+import Box from '@mui/material/Box';
 
 const rating = (defaultRating: number, ratingCount: number) => {
   return (
@@ -39,6 +42,20 @@ const snsIcons = () => {
         color={`${theme.palette.primary.main}`}
       />
     </Stack>
+  );
+};
+
+const specialtyChips = (specialty: Specialty[]) => {
+  return (
+    <Grid container spacing={1}>
+      {specialty.map((v) => {
+        return (
+          <Grid item>
+            <Chip label={v} color="primary" />
+          </Grid>
+        );
+      })}
+    </Grid>
   );
 };
 
@@ -68,7 +85,19 @@ export default function instructorProfile() {
           </Grid>
         }
       />
-      <CardContent></CardContent>
+      <CardContent>
+        {specialtyChips([
+          'キス',
+          'キス',
+          'キス',
+          'キス',
+          'キス',
+          'キス',
+          'キス',
+          'キス',
+          'キス',
+        ])}
+      </CardContent>
     </Card>
   );
 }
