@@ -1,0 +1,79 @@
+.slider {
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 10px;
+
+  &_item {
+    background-color: #fff;
+    margin: 0 auto;
+    height: 100%;
+    height: calc(100vh - 66px); //100vh - (bottomNavi高さ + .sliderのmargin分)
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      right: 0%;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &_profile {
+    max-width: 70%;
+    position: absolute;
+    left: 4%;
+    bottom: 6%;
+  }
+
+  &_name {
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &_ratingWrap {
+    display: flex;
+  }
+
+  &_ratingNumber {
+    color: #fff;
+    margin-left: 8px;
+    font-weight: 600;
+  }
+
+  &_moreButton {
+    color: #fff;
+    position: absolute;
+    bottom: 4%;
+    right: 4%;
+
+    & > svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &_tagWrap {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &_tag {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+
+    & + .slider_tag {
+      margin-left: 10px;
+    }
+  }
+}
