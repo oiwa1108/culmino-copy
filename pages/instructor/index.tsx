@@ -87,7 +87,7 @@ export default function Instructor() {
           })}
         </Swiper>
       </Box>
-      <BottomNavi _type="instructor" />
+      <BottomNavi _type="training" />
     </>
   );
 }
