@@ -1,4 +1,4 @@
-import Head from '../src/components/head';
+import Head from '../../src/components/head';
 import { BottomNavi } from '@components/BottomNavi';
 import { Lazy, EffectCards } from 'swiper';
 import { Box, IconButton, Typography, Rating } from '@mui/material';
@@ -8,9 +8,9 @@ import 'swiper/css';
 import 'swiper/css/lazy';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
-import styles from '../styles/home.module.scss';
+import styles from '../../styles/instructor.module.scss';
 
-export default function Home() {
+export default function Instructor() {
   const imageList = [
     'https://picsum.photos/300/200',
     'https://picsum.photos/300/200',
@@ -87,7 +87,7 @@ export default function Home() {
           })}
         </Swiper>
       </Box>
-      <BottomNavi _type="home" />
+      <BottomNavi _type="instructor" />
     </>
   );
 }
