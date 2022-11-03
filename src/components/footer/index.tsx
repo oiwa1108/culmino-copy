@@ -9,10 +9,10 @@ import { styled } from '@mui/material/styles';
 import { NavParam, Navigations } from '../navigations';
 
 const SnsContainer = styled('div')({
-  margin: '10px 10px 0 10px',
+  marginTop: '14px',
   display: 'flex',
-  fontSize: '25px',
   justifyContent: 'space-around',
+  fontSize: '22px',
   color: '#fff',
 });
 
@@ -28,32 +28,49 @@ export default function Footer() {
   ];
 
   return (
-    <Box sx={{ backgroundColor: 'background.default' }}>
-      <Box sx={{ margin: 0, display: 'flex' }}>
-        <Box sx={{ margin: '20px 0 0 20px' }}>
-          <img
-            src="/image/sublogo.jpg"
-            width="100"
-            height="100"
-            alt="Culminoサブ"
-          />
-          <SnsContainer>
-            <FontAwesomeIcon icon={faTwitter} />
-            <FontAwesomeIcon icon={faTiktok} />
-            <FontAwesomeIcon icon={faInstagram} />
-          </SnsContainer>
-        </Box>
+    <Box
+      sx={{
+        backgroundColor: 'background.default',
+        padding: '26px 20px',
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Box sx={{ width: '22%', minWidth: '100px' }}>
+        <img
+          src="/image/sublogo.jpg"
+          width="100%"
+          height="auto"
+          alt="Culminoサブ"
+        />
+        <SnsContainer>
+          <FontAwesomeIcon icon={faTwitter} />
+          <FontAwesomeIcon icon={faTiktok} />
+          <FontAwesomeIcon icon={faInstagram} />
+        </SnsContainer>
+      </Box>
+
+      <Box
+        sx={{
+          flex: 1,
+          paddingLeft: '12%',
+
+          '& .MuiListItem-root:first-child': {
+            marginTop: 0,
+          },
+        }}
+      >
         <Navigations
           navList={navList}
           sx={{
-            margin: '10px 0 0 70px',
+            marginTop: '10px',
             padding: '0',
             listStyleType: 'none',
             color: '#fff',
-            fontFamily: 'Yomogi', //cursive;
             fontSize: '15px',
+            fontWeight: '600',
           }}
-        ></Navigations>
+        />
       </Box>
     </Box>
   );
