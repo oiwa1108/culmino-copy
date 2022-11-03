@@ -29,30 +29,32 @@ export default function Header() {
   return (
     <>
       <Accordion expanded={expanded} sx={{ boxShadow: 'none' }}>
-        <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+        <AccordionSummary
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+          sx={{
+            '& .MuiAccordionSummary-content': {
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            },
+          }}
+        >
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
+              width: '160px',
             }}
           >
             <LogoImg
               src="/image/mainlogo.jpg"
-              width="100"
-              height="50"
-              alt="Culminoホーム"
+              width="100%"
+              height="auto"
+              alt="Culmino"
+              sx={{ margin: 0 }}
             />
           </Box>
 
-          <Box
-            sx={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
+          <Box sx={{}}>
             <MenuIcon onClick={() => setExpanded(!expanded)} />
           </Box>
         </AccordionSummary>
