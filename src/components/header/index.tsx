@@ -37,6 +37,7 @@ export default function Header() {
           margin: '0 auto',
           position: 'fixed',
           top: 0,
+          zIndex: '10',
 
           '& .MuiCollapse-root': {
             position: 'absolute',
