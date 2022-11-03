@@ -28,7 +28,24 @@ export default function Header() {
   ];
   return (
     <>
-      <Accordion expanded={expanded} sx={{ boxShadow: 'none' }}>
+      <Accordion
+        expanded={expanded}
+        sx={{
+          boxShadow: 'none',
+          width: '100%',
+          maxWidth: '500px',
+          margin: '0 auto',
+          position: 'fixed',
+          top: 0,
+
+          '& .MuiCollapse-root': {
+            position: 'absolute',
+            width: '100%',
+            top: '100%',
+            bgcolor: '#fff',
+          },
+        }}
+      >
         <AccordionSummary
           aria-controls="panel1a-content"
           id="panel1a-header"
@@ -37,6 +54,12 @@ export default function Header() {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
+              margin: 0,
+              padding: '10px 0',
+
+              '&.Mui-expanded': {
+                margin: 0,
+              },
             },
           }}
         >
