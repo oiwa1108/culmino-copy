@@ -28,7 +28,7 @@ export default function Header() {
   ];
   return (
     <>
-      <Accordion expanded={expanded}>
+      <Accordion expanded={expanded} sx={{ boxShadow: 'none' }}>
         <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
           <Box
             sx={{
