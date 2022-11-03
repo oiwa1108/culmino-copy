@@ -67,7 +67,7 @@ export default function signUp() {
   };
 
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <Header />
       <Box className={styles.signUp}>
@@ -156,6 +156,6 @@ export default function signUp() {
           </Button>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

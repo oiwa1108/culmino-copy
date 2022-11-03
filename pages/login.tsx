@@ -2,11 +2,11 @@ import styles from '../styles/login.module.scss';
 import Header from '../src/components/header';
 import Head from '../src/components/head';
 
-import { FormControl, TextField, Button, Link } from '@mui/material';
+import { FormControl, TextField, Button, Link, Box } from '@mui/material';
 
 export default function Login() {
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <Header />
       <div className={styles.container}>
@@ -47,6 +47,6 @@ export default function Login() {
           </p>
         </FormControl>
       </div>
-    </>
+    </Box>
   );
 }
