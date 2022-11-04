@@ -33,6 +33,10 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ListSubheader from '@mui/material/ListSubheader';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const rating = (defaultRating: number, ratingCount: number) => {
   return (
@@ -178,12 +182,24 @@ export default function instructorProfile() {
   //TODO: uid が不正なものであれば404のエラーページ表示
   return (
     <Card>
-      <CardMedia
-        component="img"
-        height="375"
-        image="https://picsum.photos/300/400"
-        alt="Paella dish"
-      />
+      <CardContent>
+        <Swiper
+          modules={[Pagination]}
+          loop={true}
+          pagination={{ clickable: true, el: '#pagination' }}
+        >
+          {[...Array(5)].map((_, i) => (
+            <SwiperSlide key={i}>
+              <CardMedia
+                component="img"
+                height="375"
+                image={`https://picsum.photos/id/${i}/300/400`}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div id="pagination" style={{ textAlign: 'center' }} />
+      </CardContent>
       <CardHeader
         title={'カレン'}
         subheader={
