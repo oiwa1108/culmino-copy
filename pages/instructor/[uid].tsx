@@ -5,13 +5,21 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library, IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faTiktok,
   faSquareFacebook,
   faSquareTwitter,
   faSquareYoutube,
   faSquareInstagram,
+  faTwitterSquare,
 } from '@fortawesome/free-brands-svg-icons';
+library.add(faTiktok as IconDefinition);
+library.add(faSquareFacebook as IconDefinition);
+library.add(faTwitterSquare as IconDefinition);
+library.add(faSquareInstagram as IconDefinition);
+library.add(faSquareYoutube as IconDefinition);
+
 import { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -35,31 +43,64 @@ const rating = (defaultRating: number, ratingCount: number) => {
   );
 };
 
-const snsIcons = () => {
+type SNSIconProps = {
+  icon:
+    | typeof faSquareFacebook
+    | typeof faSquareTwitter
+    | typeof faSquareInstagram
+    | typeof faSquareYoutube
+    | typeof faTiktok;
+  link?: string;
+};
+const SNSIcon = ({ icon, link }: SNSIconProps) => {
   const theme = useTheme();
-  const primaryColor = `${theme.palette.primary.main}`;
-  const padStyle = { padding: '2px' };
+  const isTiktok = icon === faTiktok;
+  const mainColor = link
+    ? `${theme.palette.primary.main}`
+    : `${theme.palette.secondary.main}`;
+  const iconColor = isTiktok ? 'white' : mainColor;
+  const size = isTiktok ? 'sm' : 'lg';
+  const style = isTiktok
+    ? {
+        padding: '2px',
+        backgroundColor: mainColor,
+      }
+    : {};
+  const aProps = link
+    ? { href: link, target: '_blank', rel: 'noopener noreferrer' }
+    : {};
   return (
-    <Stack direction="row" spacing={1.5}>
-      <FontAwesomeIcon size="lg" icon={faSquareFacebook} color={primaryColor} />
-      <FontAwesomeIcon size="lg" icon={faSquareTwitter} color={primaryColor} />
+    <a {...aProps}>
       <FontAwesomeIcon
-        size="lg"
-        icon={faSquareInstagram}
-        color={primaryColor}
+        size={size}
+        icon={icon as IconDefinition}
+        color={iconColor}
+        style={style}
       />
-      <FontAwesomeIcon size="lg" icon={faSquareYoutube} color={primaryColor} />
-      <FontAwesomeIcon
-        size="sm"
-        icon={faTiktok}
-        color="white"
-        style={{ ...padStyle, backgroundColor: primaryColor }}
-      />
+    </a>
+  );
+};
+
+type SNSIconsAreaProps = {
+  spacing: number;
+  facebookLink?: string;
+  twitterLink?: string;
+  InstagramLink?: string;
+  youtubeLink?: string;
+  tiktokLink?: string;
+};
+const SNSIconsArea = (props: SNSIconsAreaProps) => {
+  return (
+    <Stack direction="row" spacing={props.spacing}>
+      <SNSIcon icon={faSquareFacebook} link={props.facebookLink} />
+      <SNSIcon icon={faSquareTwitter} link={props.twitterLink} />
+      <SNSIcon icon={faSquareInstagram} link={props.InstagramLink} />
+      <SNSIcon icon={faSquareYoutube} link={props.youtubeLink} />
+      <SNSIcon icon={faTiktok} link={props.tiktokLink} />
     </Stack>
   );
 };
 
-// TODO:SNSのリンクをpropsに追加
 const specialtyChips = (specialty: Specialty[]) => {
   return (
     <Grid container columnSpacing={2} rowSpacing={1}>
@@ -151,7 +192,11 @@ export default function instructorProfile() {
               {rating(3, 53)}
             </Grid>
             <Grid item sm={6}>
-              {snsIcons()}
+              <SNSIconsArea
+                spacing={1.5}
+                facebookLink="https://www.facebook.com"
+                youtubeLink="https://www.youtube.com"
+              />
             </Grid>
           </Grid>
         }
