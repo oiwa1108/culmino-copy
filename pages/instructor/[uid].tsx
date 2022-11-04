@@ -4,12 +4,14 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import {
+  faTiktok,
+  faSquareFacebook,
+  faSquareTwitter,
+  faSquareYoutube,
+  faSquareInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 import { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -35,16 +37,23 @@ const rating = (defaultRating: number, ratingCount: number) => {
 
 const snsIcons = () => {
   const theme = useTheme();
-
+  const primaryColor = `${theme.palette.primary.main}`;
+  const padStyle = { padding: '2px' };
   return (
-    <Stack direction="row" spacing={1}>
-      <FacebookIcon color="primary" />
-      <TwitterIcon color="primary" />
-      <InstagramIcon color="primary" />
-      <YouTubeIcon color="primary" />
+    <Stack direction="row" spacing={1.5}>
+      <FontAwesomeIcon size="lg" icon={faSquareFacebook} color={primaryColor} />
+      <FontAwesomeIcon size="lg" icon={faSquareTwitter} color={primaryColor} />
       <FontAwesomeIcon
+        size="lg"
+        icon={faSquareInstagram}
+        color={primaryColor}
+      />
+      <FontAwesomeIcon size="lg" icon={faSquareYoutube} color={primaryColor} />
+      <FontAwesomeIcon
+        size="sm"
         icon={faTiktok}
-        color={`${theme.palette.primary.main}`}
+        color="white"
+        style={{ ...padStyle, backgroundColor: primaryColor }}
       />
     </Stack>
   );
@@ -137,7 +146,7 @@ export default function instructorProfile() {
       <CardHeader
         title={'カレン'}
         subheader={
-          <Grid container spacing={6}>
+          <Grid container spacing={5}>
             <Grid item sm={6}>
               {rating(3, 53)}
             </Grid>
