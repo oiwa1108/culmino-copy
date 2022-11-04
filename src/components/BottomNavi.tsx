@@ -7,7 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useRouter } from 'next/router';
 
-type BottomNaviProps = { _type: 'home' | 'match' | 'mypage' };
+type BottomNaviProps = { _type: 'training' | 'match' | 'mypage' };
 
 export function BottomNavi(props: BottomNaviProps) {
   const router = useRouter();
@@ -28,7 +28,7 @@ export function BottomNavi(props: BottomNaviProps) {
           margin: '0 auto',
         }}
       >
-        <BottomNavigationAction value="home" icon={<School />} />
+        <BottomNavigationAction value="training" icon={<School />} />
         <BottomNavigationAction value="match" icon={<FavoriteIcon />} />
         <BottomNavigationAction value="schedule" icon={<Event />} />
         <BottomNavigationAction value="mypage" icon={<AccountCircle />} />

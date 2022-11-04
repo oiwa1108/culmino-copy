@@ -18,7 +18,7 @@ export default function SignUpComplete() {
             size="large"
             sx={{ fontWeight: 600, mt: 4 }}
             onClick={() => {
-              router.push('/home');
+              router.push('/instructor');
             }}
           >
             ホームへ
