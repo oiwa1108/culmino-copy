@@ -16,8 +16,13 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
-import { Specialty } from '@models/instructor';
-import Box from '@mui/material/Box';
+import { Specialty, Schedule } from '@models/instructor';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ListSubheader from '@mui/material/ListSubheader';
 
 const rating = (defaultRating: number, ratingCount: number) => {
   return (
@@ -45,6 +50,7 @@ const snsIcons = () => {
   );
 };
 
+// TODO:SNSのリンクをpropsに追加
 const specialtyChips = (specialty: Specialty[]) => {
   return (
     <Grid container spacing={1}>
@@ -56,6 +62,62 @@ const specialtyChips = (specialty: Specialty[]) => {
         );
       })}
     </Grid>
+  );
+};
+
+const jaDayMap: { [key: number]: string } = {
+  0: '日',
+  1: '月',
+  2: '火',
+  3: '水',
+  4: '木',
+  5: '金',
+  6: '土',
+};
+const subHeaderTitle = (k: Date) =>
+  `${k.getMonth() + 1}/${k.getDate()}(${jaDayMap[k.getDay()]})`;
+const toHHMM = new Intl.DateTimeFormat('ja-JP', {
+  hour: '2-digit',
+  minute: '2-digit',
+});
+const scheduleList = (schedules: Map<Date, Schedule[]>) => {
+  const theme = useTheme();
+  return (
+    <List>
+      {[...schedules.keys()].map((k) => (
+        <>
+          <ListSubheader
+            key={k.toUTCString()}
+            sx={{
+              textAlign: 'center',
+              backgroundColor: `${theme.palette.secondary.main}`,
+            }}
+          >
+            {subHeaderTitle(k)}
+          </ListSubheader>
+          {schedules.get(k)?.map((s, i) => (
+            <>
+              <ListItem key={i}>
+                <ListItemAvatar>
+                  <Avatar src={s.icon_img_url || ''} />
+                </ListItemAvatar>
+
+                <ListItemText
+                  primary={s.title}
+                  secondary={
+                    <>
+                      {`${s.price}コイン`}
+                      <br />
+                      {`${toHHMM.format(s.startAt)}〜${toHHMM.format(s.endAt)}`}
+                    </>
+                  }
+                />
+              </ListItem>
+            </>
+          )) || ''}
+        </>
+      ))}
+    </List>
   );
 };
 
@@ -86,20 +148,57 @@ export default function instructorProfile() {
         }
       />
       <CardContent>
-        {specialtyChips([
-          'キス',
-          'キス',
-          'キス',
-          'キス',
-          'キス',
-          'キス',
-          'キス',
-          'キス',
-          'キス',
-        ])}
-        <Typography>
-          ここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入ります
-        </Typography>
+        <Stack spacing={2}>
+          {specialtyChips([
+            'キス',
+            'キス',
+            'キス',
+            'キス',
+            'キス',
+            'キス',
+            'キス',
+            'キス',
+            'キス',
+          ])}
+          <Typography>
+            ここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入ります
+          </Typography>
+          {scheduleList(
+            new Map<Date, Schedule[]>([
+              [
+                new Date('2022-10-31'),
+                [
+                  {
+                    title: 'タイトルタイトルタイトルタイトル',
+                    price: 100,
+                    date: new Date('2022-10-31'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル',
+                    price: 100,
+                    date: new Date('2022-10-31'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                ],
+              ],
+              [
+                new Date('2022-11-1'),
+                [
+                  {
+                    title: 'タイトルタイトルタイトルタイトル',
+                    price: 100,
+                    date: new Date('2022-11-1'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                ],
+              ],
+            ]),
+          )}
+        </Stack>
       </CardContent>
     </Card>
   );
