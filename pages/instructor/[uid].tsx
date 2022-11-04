@@ -53,10 +53,10 @@ const snsIcons = () => {
 // TODO:SNSのリンクをpropsに追加
 const specialtyChips = (specialty: Specialty[]) => {
   return (
-    <Grid container spacing={1}>
-      {specialty.map((v) => {
+    <Grid container columnSpacing={2} rowSpacing={1}>
+      {specialty.map((v, i) => {
         return (
-          <Grid item>
+          <Grid item key={i}>
             <Chip label={v} color="primary" />
           </Grid>
         );
