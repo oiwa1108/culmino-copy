@@ -37,6 +37,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { BottomNavi } from '@components/BottomNavi';
 
 const rating = (defaultRating: number, ratingCount: number) => {
   return (
@@ -181,99 +182,102 @@ export default function instructorProfile() {
 
   //TODO: uid が不正なものであれば404のエラーページ表示
   return (
-    <Card>
-      <CardContent>
-        <Swiper
-          modules={[Pagination]}
-          loop={true}
-          pagination={{ clickable: true, el: '#pagination' }}
-        >
-          {[...Array(5)].map((_, i) => (
-            <SwiperSlide key={i}>
-              <CardMedia
-                component="img"
-                height="375"
-                image={`https://picsum.photos/id/${i}/300/400`}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div id="pagination" style={{ textAlign: 'center' }} />
-      </CardContent>
-      <CardHeader
-        title={'カレン'}
-        subheader={
-          <Grid container spacing={5}>
-            <Grid item sm={6}>
-              {rating(3, 53)}
+    <>
+      <Card>
+        <CardContent>
+          <Swiper
+            modules={[Pagination]}
+            loop={true}
+            pagination={{ clickable: true, el: '#pagination' }}
+          >
+            {[...Array(5)].map((_, i) => (
+              <SwiperSlide key={i}>
+                <CardMedia
+                  component="img"
+                  height="375"
+                  image={`https://picsum.photos/id/${i}/300/400`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div id="pagination" style={{ textAlign: 'center' }} />
+        </CardContent>
+        <CardHeader
+          title={'カレン'}
+          subheader={
+            <Grid container spacing={5}>
+              <Grid item sm={6}>
+                {rating(3, 53)}
+              </Grid>
+              <Grid item sm={6}>
+                <SNSIconsArea
+                  spacing={1.5}
+                  facebookLink="https://www.facebook.com"
+                  youtubeLink="https://www.youtube.com"
+                />
+              </Grid>
             </Grid>
-            <Grid item sm={6}>
-              <SNSIconsArea
-                spacing={1.5}
-                facebookLink="https://www.facebook.com"
-                youtubeLink="https://www.youtube.com"
-              />
-            </Grid>
-          </Grid>
-        }
-      />
-      <CardContent>
-        <Stack spacing={2}>
-          {specialtyChips([
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-            'キス',
-          ])}
-          <Typography>
-            ここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入ります
-          </Typography>
-          {scheduleList(
-            new Map<Date, Schedule[]>([
-              [
-                new Date('2022-10-31'),
+          }
+        />
+        <CardContent>
+          <Stack spacing={2}>
+            {specialtyChips([
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+              'キス',
+            ])}
+            <Typography>
+              ここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入ります
+            </Typography>
+            {scheduleList(
+              new Map<Date, Schedule[]>([
                 [
-                  {
-                    title: 'タイトルタイトルタイトルタイトル',
-                    price: 100,
-                    date: new Date('2022-10-31'),
-                    startAt: new Date(),
-                    endAt: new Date(),
-                  },
-                  {
-                    title: 'タイトルタイトルタイトルタイトル',
-                    price: 100,
-                    date: new Date('2022-10-31'),
-                    startAt: new Date(),
-                    endAt: new Date(),
-                  },
+                  new Date('2022-10-31'),
+                  [
+                    {
+                      title: 'タイトルタイトルタイトルタイトル',
+                      price: 100,
+                      date: new Date('2022-10-31'),
+                      startAt: new Date(),
+                      endAt: new Date(),
+                    },
+                    {
+                      title: 'タイトルタイトルタイトルタイトル',
+                      price: 100,
+                      date: new Date('2022-10-31'),
+                      startAt: new Date(),
+                      endAt: new Date(),
+                    },
+                  ],
                 ],
-              ],
-              [
-                new Date('2022-11-1'),
                 [
-                  {
-                    title: 'タイトルタイトルタイトルタイトル',
-                    price: 100,
-                    date: new Date('2022-11-1'),
-                    startAt: new Date(),
-                    endAt: new Date(),
-                  },
+                  new Date('2022-11-1'),
+                  [
+                    {
+                      title: 'タイトルタイトルタイトルタイトル',
+                      price: 100,
+                      date: new Date('2022-11-1'),
+                      startAt: new Date(),
+                      endAt: new Date(),
+                    },
+                  ],
                 ],
-              ],
-            ]),
-          )}
-        </Stack>
-      </CardContent>
-    </Card>
+              ]),
+            )}
+          </Stack>
+        </CardContent>
+      </Card>
+      <BottomNavi _type="training" />
+    </>
   );
 }
