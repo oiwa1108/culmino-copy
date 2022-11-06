@@ -26,7 +26,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
-import { Specialty, Schedule } from '@models/instructor';
+import { Specialty, Schedule, allSpecialty } from '@models/instructor';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -109,10 +109,13 @@ const SNSIconsArea = (props: SNSIconsAreaProps) => {
 const specialtyChips = (specialty: Specialty[]) => {
   return (
     <Grid container columnSpacing={2} rowSpacing={1}>
-      {specialty.map((v, i) => {
+      {allSpecialty.map((v, i) => {
         return (
           <Grid item key={i}>
-            <Chip label={v} color="primary" />
+            <Chip
+              label={v}
+              color={specialty.includes(v) ? 'primary' : 'secondary'}
+            />
           </Grid>
         );
       })}
@@ -224,16 +227,12 @@ export default function instructorProfile() {
             {specialtyChips([
               '座学１',
               '座学２',
-              '座学３',
               'マッサージ１',
               'マッサージ２',
-              'タッチング１',
               'タッチング２',
-              'キス',
               '乳房・乳首',
               '外陰部',
               '内陰部',
-              '挿入',
               'コミュニケーションレッスン',
             ])}
             <Typography>
