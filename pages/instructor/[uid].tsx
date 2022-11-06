@@ -33,6 +33,8 @@ import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import IconButton from '@mui/material/IconButton';
 import ListSubheader from '@mui/material/ListSubheader';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
@@ -171,6 +173,9 @@ const scheduleList = (schedules: Map<Date, Schedule[]>) => {
                     </>
                   }
                 />
+                <IconButton>
+                  <ChevronRightIcon />
+                </IconButton>
               </ListItem>
               <Divider />
             </>
