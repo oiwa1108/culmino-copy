@@ -187,7 +187,7 @@ export default function instructorProfile() {
   return (
     <>
       <Card>
-        <CardContent>
+        <CardContent sx={{ p: 0 }}>
           <Swiper
             modules={[Pagination]}
             loop={true}
@@ -238,42 +238,44 @@ export default function instructorProfile() {
             <Typography>
               ここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入りますここにインストラクターの説明が入ります
             </Typography>
-            {scheduleList(
-              new Map<Date, Schedule[]>([
-                [
-                  new Date('2022-10-31'),
-                  [
-                    {
-                      title: 'タイトルタイトルタイトルタイトル',
-                      price: 100,
-                      date: new Date('2022-10-31'),
-                      startAt: new Date(),
-                      endAt: new Date(),
-                    },
-                    {
-                      title: 'タイトルタイトルタイトルタイトル',
-                      price: 100,
-                      date: new Date('2022-10-31'),
-                      startAt: new Date(),
-                      endAt: new Date(),
-                    },
-                  ],
-                ],
-                [
-                  new Date('2022-11-1'),
-                  [
-                    {
-                      title: 'タイトルタイトルタイトルタイトル',
-                      price: 100,
-                      date: new Date('2022-11-1'),
-                      startAt: new Date(),
-                      endAt: new Date(),
-                    },
-                  ],
-                ],
-              ]),
-            )}
           </Stack>
+        </CardContent>
+        <CardContent sx={{ px: 0 }}>
+          {scheduleList(
+            new Map<Date, Schedule[]>([
+              [
+                new Date('2022-10-31'),
+                [
+                  {
+                    title: 'タイトルタイトルタイトルタイトル',
+                    price: 100,
+                    date: new Date('2022-10-31'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル',
+                    price: 100,
+                    date: new Date('2022-10-31'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                ],
+              ],
+              [
+                new Date('2022-11-1'),
+                [
+                  {
+                    title: 'タイトルタイトルタイトルタイトル',
+                    price: 100,
+                    date: new Date('2022-11-1'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                ],
+              ],
+            ]),
+          )}
         </CardContent>
       </Card>
       <BottomNavi _type="training" />
