@@ -51,22 +51,29 @@ export default function Header() {
           aria-controls="panel1a-content"
           id="panel1a-header"
           sx={{
+            minHeight: 'auto',
+
             '& .MuiAccordionSummary-content': {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               margin: 0,
-              padding: '10px 0',
+              padding: '2px 0',
 
               '&.Mui-expanded': {
                 margin: 0,
               },
             },
+
+            '&.Mui-expanded': {
+              margin: 0,
+              minHeight: 'auto',
+            },
           }}
         >
           <Box
             sx={{
-              width: '160px',
+              width: '30%',
             }}
           >
             <LogoImg
@@ -78,12 +85,15 @@ export default function Header() {
             />
           </Box>
 
-          <Box sx={{}}>
+          <Box>
             <MenuIcon onClick={() => setExpanded(!expanded)} />
           </Box>
         </AccordionSummary>
         <AccordionDetails>
-          {<Navigations navList={navList}></Navigations>}
+          <Navigations
+            navList={navList}
+            sx={{ paddingLeft: 0, fontWeight: '600' }}
+          />
         </AccordionDetails>
       </Accordion>
     </>
