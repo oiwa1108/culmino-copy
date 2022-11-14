@@ -12,7 +12,7 @@ export default function Login() {
       <div className={styles.container}>
         <div className={styles.logoWrap}>
           <img
-            src="/image/mainlogo.jpg"
+            src="/image/mainlogo.png"
             alt="Culmino"
             className={styles.logo}
           />
