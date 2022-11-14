@@ -1,5 +1,4 @@
 import styles from '../styles/login.module.scss';
-import Header from '../src/components/header';
 import Head from '../src/components/head';
 
 import { FormControl, TextField, Button, Link } from '@mui/material';
@@ -8,7 +7,6 @@ export default function Login() {
   return (
     <>
       <Head />
-      <Header />
       <div className={styles.container}>
         <div className={styles.logoWrap}>
           <img
