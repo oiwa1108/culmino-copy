@@ -1,0 +1,43 @@
+.privacy {
+  padding-bottom: 140px;
+
+  &_container {
+    padding: 10px 20px;
+
+    & > div {
+      & + div {
+        padding-top: 20px;
+      }
+    }
+
+    & p,
+    & h2 {
+      // TODO: ThemeでfontFamily適応後に削除する
+      font-family: sans-serif !important;
+    }
+  }
+
+  &_logo {
+    width: 40%;
+    margin: 34px auto 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &_heading {
+    font-size: 1.7rem;
+    font-weight: 600;
+    padding: 0.5em 0em;
+
+    @media (max-width: 670px) {
+      font-size: 1.4em;
+    }
+  }
+
+  &_flex {
+    display: flex;
+    padding-bottom: 0.5em;
+  }
+}
