@@ -58,7 +58,7 @@ export default function Header() {
               justifyContent: 'space-between',
               alignItems: 'center',
               margin: 0,
-              padding: '2px 0',
+              padding: '9px 0',
 
               '&.Mui-expanded': {
                 margin: 0,
@@ -77,7 +77,7 @@ export default function Header() {
             }}
           >
             <LogoImg
-              src="/image/mainlogo.jpg"
+              src="/image/mainlogo.png"
               width="100%"
               height="auto"
               alt="Culmino"
