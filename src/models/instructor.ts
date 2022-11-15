@@ -22,5 +22,4 @@ export type Schedule = {
   date: Date;
   startAt: Date;
   endAt: Date;
-  icon_img_url?: string;
 };

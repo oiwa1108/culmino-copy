@@ -20,7 +20,7 @@ library.add(faTwitterSquare as IconDefinition);
 library.add(faSquareInstagram as IconDefinition);
 library.add(faSquareYoutube as IconDefinition);
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -41,6 +41,8 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { BottomNavi } from '@components/BottomNavi';
+import Collapse from '@mui/material/Collapse';
+import { ListItemButton } from '@mui/material';
 
 const rating = (defaultRating: number, ratingCount: number) => {
   return (
@@ -141,47 +143,78 @@ const toHHMM = new Intl.DateTimeFormat('ja-JP', {
   hour: '2-digit',
   minute: '2-digit',
 });
+type ScheduleListItemProps = { index: number; schedule: Schedule };
+const ScheduleListItem = ({ index, schedule }: ScheduleListItemProps) => (
+  <ListItem key={index}>
+    <ListItemText
+      primary={schedule.title}
+      secondary={
+        <>
+          {`${schedule.price}コイン`}
+          <br />
+          {`${toHHMM.format(schedule.startAt)}〜${toHHMM.format(
+            schedule.endAt,
+          )}`}
+        </>
+      }
+    />
+    <IconButton>
+      <ChevronRightIcon />
+    </IconButton>
+  </ListItem>
+);
+const SHOW_ITEMS_NOT_EXPANDED = 3;
 const scheduleList = (schedules: Map<Date, Schedule[]>) => {
   const theme = useTheme();
   return (
     <List>
-      {[...schedules.keys()].map((k) => (
-        <>
-          <ListSubheader
-            key={k.toUTCString()}
-            sx={{
-              textAlign: 'center',
-              backgroundColor: `${theme.palette.secondary.main}`,
-            }}
-          >
-            {subHeaderTitle(k)}
-          </ListSubheader>
-          {schedules.get(k)?.map((s, i) => (
-            <>
-              <ListItem key={i}>
-                <ListItemAvatar>
-                  <Avatar src={s.icon_img_url || ''} />
-                </ListItemAvatar>
+      {[...schedules.keys()].map((k) => {
+        const [expanded, setExpanded] = useState(false);
+        return (
+          <>
+            <ListSubheader
+              key={k.toUTCString()}
+              sx={{
+                textAlign: 'center',
+                backgroundColor: `${theme.palette.secondary.main}`,
+              }}
+            >
+              {subHeaderTitle(k)}
+            </ListSubheader>
+            {schedules.get(k)?.map((s, i) => (
+              <>
+                {i == SHOW_ITEMS_NOT_EXPANDED ? (
+                  <Collapse in={!expanded}>
+                    <ListItem>
+                      <ListItemText primaryTypographyProps={{ align: 'right' }}>
+                        もっとみる
+                      </ListItemText>
+                      <IconButton>
+                        <ChevronRightIcon onClick={() => setExpanded(true)} />
+                      </IconButton>
+                    </ListItem>
+                    <Divider />
+                  </Collapse>
+                ) : (
+                  ''
+                )}
 
-                <ListItemText
-                  primary={s.title}
-                  secondary={
-                    <>
-                      {`${s.price}コイン`}
-                      <br />
-                      {`${toHHMM.format(s.startAt)}〜${toHHMM.format(s.endAt)}`}
-                    </>
-                  }
-                />
-                <IconButton>
-                  <ChevronRightIcon />
-                </IconButton>
-              </ListItem>
-              <Divider />
-            </>
-          )) || ''}
-        </>
-      ))}
+                {i < SHOW_ITEMS_NOT_EXPANDED ? (
+                  <>
+                    <ScheduleListItem index={i} schedule={s} />
+                    <Divider />
+                  </>
+                ) : (
+                  <Collapse in={expanded}>
+                    <ScheduleListItem index={i} schedule={s} />
+                    <Divider />
+                  </Collapse>
+                )}
+              </>
+            )) || ''}
+          </>
+        );
+      })}
     </List>
   );
 };
@@ -254,14 +287,28 @@ export default function instructorProfile() {
                 new Date('2022-10-31'),
                 [
                   {
-                    title: 'タイトルタイトルタイトルタイトル',
+                    title: 'タイトルタイトルタイトルタイトル1',
                     price: 100,
                     date: new Date('2022-10-31'),
                     startAt: new Date(),
                     endAt: new Date(),
                   },
                   {
-                    title: 'タイトルタイトルタイトルタイトル',
+                    title: 'タイトルタイトルタイトルタイトル2',
+                    price: 100,
+                    date: new Date('2022-10-31'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル3',
+                    price: 100,
+                    date: new Date('2022-10-31'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル4',
                     price: 100,
                     date: new Date('2022-10-31'),
                     startAt: new Date(),
@@ -273,7 +320,28 @@ export default function instructorProfile() {
                 new Date('2022-11-1'),
                 [
                   {
-                    title: 'タイトルタイトルタイトルタイトル',
+                    title: 'タイトルタイトルタイトルタイトル5',
+                    price: 100,
+                    date: new Date('2022-11-1'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル6',
+                    price: 100,
+                    date: new Date('2022-11-1'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル7',
+                    price: 100,
+                    date: new Date('2022-11-1'),
+                    startAt: new Date(),
+                    endAt: new Date(),
+                  },
+                  {
+                    title: 'タイトルタイトルタイトルタイトル8',
                     price: 100,
                     date: new Date('2022-11-1'),
                     startAt: new Date(),
