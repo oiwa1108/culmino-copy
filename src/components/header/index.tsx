@@ -28,36 +28,72 @@ export default function Header() {
   ];
   return (
     <>
-      <Accordion expanded={expanded}>
-        <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+      <Accordion
+        expanded={expanded}
+        sx={{
+          boxShadow: 'none',
+          width: '100%',
+          maxWidth: '500px',
+          margin: '0 auto',
+          position: 'fixed',
+          top: 0,
+          zIndex: '10',
+
+          '& .MuiCollapse-root': {
+            position: 'absolute',
+            width: '100%',
+            top: '100%',
+            bgcolor: '#fff',
+          },
+        }}
+      >
+        <AccordionSummary
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+          sx={{
+            minHeight: 'auto',
+
+            '& .MuiAccordionSummary-content': {
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              margin: 0,
+              padding: '9px 0',
+
+              '&.Mui-expanded': {
+                margin: 0,
+              },
+            },
+
+            '&.Mui-expanded': {
+              margin: 0,
+              minHeight: 'auto',
+            },
+          }}
+        >
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
+              width: '30%',
             }}
           >
             <LogoImg
-              src="/image/mainlogo.jpg"
-              width="100"
-              height="50"
-              alt="Culminoホーム"
+              src="/image/mainlogo.png"
+              width="100%"
+              height="auto"
+              alt="Culmino"
+              sx={{ margin: 0 }}
             />
           </Box>
 
-          <Box
-            sx={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}
-          >
+          <Box>
             <MenuIcon onClick={() => setExpanded(!expanded)} />
           </Box>
         </AccordionSummary>
         <AccordionDetails>
-          {<Navigations navList={navList}></Navigations>}
+          <Navigations
+            navList={navList}
+            sx={{ paddingLeft: 0, fontWeight: '600' }}
+          />
         </AccordionDetails>
       </Accordion>
     </>

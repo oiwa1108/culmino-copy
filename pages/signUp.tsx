@@ -66,7 +66,7 @@ export default function signUp() {
   };
 
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <Box className={styles.signUp}>
         <Box component="form" onSubmit={handleSubmit}>
@@ -154,6 +154,6 @@ export default function signUp() {
           </Button>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

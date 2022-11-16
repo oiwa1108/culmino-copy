@@ -7,7 +7,7 @@ import Footer from '../src/components/footer';
 
 export default function Home() {
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <Header />
       <Box
@@ -39,6 +39,6 @@ export default function Home() {
         <News date="2022.08.23" contents="CULMINO株式会社設立" />
       </div>
       <Footer />
-    </>
+    </Box>
   );
 }
