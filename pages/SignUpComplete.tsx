@@ -6,7 +6,7 @@ export default function SignUpComplete() {
   const router = useRouter();
 
   return (
-    <Box sx={{ marginTop: '82px' }}>
+    <Box>
       <Head />
       <Box>
         <Box sx={{ textAlign: 'center', paddingY: 4, paddingX: 2 }}>

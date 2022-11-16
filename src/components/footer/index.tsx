@@ -18,9 +18,9 @@ const SnsContainer = styled('div')({
 
 export default function Footer() {
   const navList: NavParam[] = [
-    { text: '利用規約', href: '#' },
-    { text: 'プライバシーポリシー', href: '#' },
-    { text: '特定商取引法', href: '#' },
+    { text: '利用規約', href: '/terms' },
+    { text: 'プライバシーポリシー', href: '/privacy' },
+    { text: '特定商取引法', href: '/commercial' },
     { text: '資産決済法', href: '#' },
     { text: 'ガイドライン', href: '#' },
     { text: 'よくあるお問合せ', href: '#' },

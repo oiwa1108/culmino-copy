@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/signUp.module.scss';
-import Header from '../src/components/header';
 import Head from '../src/components/head';
 import { FormInput } from '../src/components/formInput';
 import { FormRadio } from '../src/components/formRadio';
@@ -67,9 +66,8 @@ export default function signUp() {
   };
 
   return (
-    <Box sx={{ marginTop: '82px' }}>
+    <Box>
       <Head />
-      <Header />
       <Box className={styles.signUp}>
         <Box component="form" onSubmit={handleSubmit}>
           <FormInput

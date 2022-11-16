@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/signUp.module.scss';
 
-import Header from '../src/components/header';
 import Head from '../src/components/head';
 import { FormInput } from '../src/components/formInput';
 
@@ -21,9 +20,8 @@ export default function signUpTel() {
   };
 
   return (
-    <Box sx={{ marginTop: '82px' }}>
+    <Box>
       <Head />
-      <Header />
       <Box className={styles.signUp}>
         <Typography
           sx={{ color: 'error.main', fontSize: 15, fontWeight: '600', mb: 2 }}

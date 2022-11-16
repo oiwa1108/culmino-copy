@@ -1,14 +1,12 @@
 import styles from '../styles/login.module.scss';
-import Header from '../src/components/header';
 import Head from '../src/components/head';
 
 import { FormControl, TextField, Button, Link, Box } from '@mui/material';
 
 export default function Login() {
   return (
-    <Box sx={{ marginTop: '82px' }}>
+    <Box>
       <Head />
-      <Header />
       <div className={styles.container}>
         <div className={styles.logoWrap}>
           <img
