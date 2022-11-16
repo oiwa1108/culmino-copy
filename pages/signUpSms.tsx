@@ -21,7 +21,7 @@ export default function signUpSms() {
   };
 
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <Header />
       <Box className={styles.signUp}>
@@ -51,6 +51,6 @@ export default function signUpSms() {
           </Button>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

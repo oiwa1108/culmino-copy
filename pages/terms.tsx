@@ -231,7 +231,7 @@ export default function Terms() {
   }, []);
 
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <Header />
       <Box className={styles.terms}>
@@ -278,6 +278,6 @@ export default function Terms() {
           </Button>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }
