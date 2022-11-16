@@ -1,16 +1,16 @@
 import styles from '../styles/login.module.scss';
 import Head from '../src/components/head';
 
-import { FormControl, TextField, Button, Link } from '@mui/material';
+import { FormControl, TextField, Button, Link, Box } from '@mui/material';
 
 export default function Login() {
   return (
-    <>
+    <Box sx={{ marginTop: '82px' }}>
       <Head />
       <div className={styles.container}>
         <div className={styles.logoWrap}>
           <img
-            src="/image/mainlogo.jpg"
+            src="/image/mainlogo.png"
             alt="Culmino"
             className={styles.logo}
           />
@@ -45,6 +45,6 @@ export default function Login() {
           </p>
         </FormControl>
       </div>
-    </>
+    </Box>
   );
 }
