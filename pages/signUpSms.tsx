@@ -20,7 +20,7 @@ export default function signUpSms() {
   };
 
   return (
-    <Box sx={{ marginTop: '82px' }}>
+    <Box>
       <Head />
       <Box className={styles.signUp}>
         <Typography

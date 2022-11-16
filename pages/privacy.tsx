@@ -9,7 +9,7 @@ export default function Privacy() {
       <Head />
       <Box className={styles.privacy}>
         <Box className={styles.privacy_logo}>
-          <img src="/image/mainlogo.jpg" alt="Culmino" />
+          <img src="/image/mainlogo.png" alt="Culmino" />
         </Box>
 
         <Box className={styles.privacy_container}>

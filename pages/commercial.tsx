@@ -9,7 +9,7 @@ export default function Commercial() {
       <Head />
       <Box className={styles.commercial}>
         <Box className={styles.commercial_logo}>
-          <img src="/image/mainlogo.jpg" alt="Culmino" />
+          <img src="/image/mainlogo.png" alt="Culmino" />
         </Box>
 
         <Box className={styles.commercial_container}>

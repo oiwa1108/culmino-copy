@@ -5,7 +5,7 @@ import { FormControl, TextField, Button, Link, Box } from '@mui/material';
 
 export default function Login() {
   return (
-    <Box sx={{ marginTop: '82px' }}>
+    <Box>
       <Head />
       <div className={styles.container}>
         <div className={styles.logoWrap}>

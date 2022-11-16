@@ -29,7 +29,7 @@ export default function Terms() {
       <Head />
       <Box className={styles.terms}>
         <Box className={styles.terms_logo}>
-          <img src="/image/mainlogo.jpg" alt="Culmino" />
+          <img src="/image/mainlogo.png" alt="Culmino" />
         </Box>
 
         <Box className={styles.terms_container}>
